@@ -1,0 +1,34 @@
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: left;
+}
+.rating > input {
+    display: none;
+}
+.rating > label {
+    display: inline-block;
+    padding: 0 5px;
+    font-size: 25px;
+    color: #ddd;
+    cursor: pointer;
+}
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input:checked ~ label {
+    color: #ffd700;
+}
+.review_item {
+    margin: 20px 0;
+}
+.review_item .rating {
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+.box_style_2 {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
