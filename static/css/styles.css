@@ -312,6 +312,58 @@ only screen and (min-device-pixel-ratio: 2) {
 	width:100%;
 	text-align:left;
 }
+
+.list-col-5 li .item-list {
+	border: 1px solid #D5DFE4;
+	border-radius: 4px;
+	display: flex;
+	padding: 15px;
+	height: 100%;
+  }
+  .list-col-5 li .item-list:hover {
+	background-color: #F4F7FC;
+	border: 1px solid #8C9EC5;
+  }
+  .list-col-5 li .item-list .icon-left {
+	padding-right: 10px;
+	min-width: 50px;
+	max-width: 50px;
+	padding-top: 5px;
+  }
+  .list-col-5 li .item-list .info-right {
+	vertical-align: top;
+  }
+  .list-col-5 {
+	display: table;
+	table-layout: fixed;
+	width: calc(100% + 20px);
+	margin: 0px -10px;
+  }
+  .list-col-5 li {
+	float: left;
+	width: 20%;
+	padding: 0px 10px;
+  }
+  .list-col-5 li .item-list {
+	border: 1px solid #D5DFE4;
+	border-radius: 4px;
+	display: flex;
+	padding: 15px;
+	height: 100%;
+  }
+  .list-col-5 li .item-list:hover {
+	background-color: #F4F7FC;
+	border: 1px solid #8C9EC5;
+  }
+  .list-col-5 li .item-list .icon-left {
+	padding-right: 10px;
+	min-width: 50px;
+	max-width: 50px;
+	padding-top: 5px;
+  }
+  .list-col-5 li .item-list .info-right {
+	vertical-align: top;
+  }
 footer{
 	background-color:#fff;
 	padding:35px 0;

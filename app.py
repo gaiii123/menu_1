@@ -36,6 +36,12 @@ reviews_collection = db["reviews"]
 def index():
     return render_template('index.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
+
 @app.route('/add_review', methods=['POST'])
 def add_review():
     name = request.form.get('name')

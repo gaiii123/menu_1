@@ -8,33 +8,202 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Ansonika">
-    <title>TravelGuide Site Template - Easly find places, guides, directions, info.</title>
+    <title>TravelGuide - Easly find places, guides, directions, info.</title>
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" href="../static/img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="../static/img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="../static/img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="../static/img/apple-touch-icon-144x144-precomposed.png">
 
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,300" rel="stylesheet" type="text/css">
 
     <!-- BASE CSS -->
-    <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/menu.css" rel="stylesheet">
-    <link href="css/icon_fonts/css/all_icons.min.css" rel="stylesheet">
-    
+    <link href="../static/css/animate.min.css" rel="stylesheet">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/styles.css" rel="stylesheet">
+    <link href="../static/css/menu.css" rel="stylesheet">
+    <link href="../static/css/icon_fonts/css/all_icons.min.css" rel="stylesheet">
+
     <!-- YOUR CUSTOM CSS -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="../static/css/custom.css" rel="stylesheet">
+
+    <!-- Modernizr -->
+    <script src="../static/js/modernizr.js"></script>
+    <!-- In the head section -->
+<link href="static/css/menu.css" rel="stylesheet">
+
+<!-- Before closing body tag -->
+<script src="static/js/menu.js"></script>
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 
     <!--[if lt IE 9]>
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          var swiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+              delay: 3000,
+              disableOnInteraction: false,
+            },
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+            },
+            effect: 'fade', // Optional: Adds a smooth fade effect
+            speed: 1000, // Transition speed
+          });
+        });
+      </script>
+      
+      
+  <style>
+    /* Swiper Container */
+    .swiper-container {
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+  
+  /* Adjust the welcome text overlay */
+  .text-overlay {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Higher than the slider */
+    color: #000000; /* Ensure text is visible on images */
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  /* Responsive adjustments for text overlay */
+  .text-overlay h1 {
+    color: #000000;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .text-overlay p {
+    color: #000000;
+    font-size: 1.2em;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .text-overlay a {
+    margin: 0 10px;
+  }
+  #chat-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      z-index: 1000; /* Ensure it is above other elements */
+    }
+  
+    #chat-button img {
+      width: 40px;
+      height: 40px;
+    }
+  
+    #chat-button:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+  
+  /* Media Query for Responsiveness */
+  @media (max-width: 768px) {
+    .swiper-container {
+      height: 70vh; /* Adjust height for smaller screens */
+    }
+  
+    .text-overlay {
+      max-width: 80%; /* Adjust width for smaller screens */
+      padding: 15px;
+    }
+  
+    .text-overlay h1 {
+      font-size: 1.8em; /* Adjust font size */
+    }
+  
+    .text-overlay p {
+      font-size: 1.0em; /* Adjust font size */
+    }
+  
+    .text-overlay a {
+      font-size: 0.9em; /* Adjust font size for buttons */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .text-overlay {
+      max-width: 90%; /* Further reduce width for very small screens */
+      padding: 10px;
+    }
+  
+    .text-overlay h1 {
+      font-size: 1.5em; /* Adjust font size for very small screens */
+    }
+  
+    .text-overlay p {
+      font-size: 0.9em; /* Adjust font size for very small screens */
+    }
+  
+    .text-overlay a {
+      font-size: 0.8em; /* Adjust font size for very small screens */
+    }
+  }
+
+  .btn-custom {
+    background-color:#f26522 !important;
+    border-color: #f26522 !important;
+    color: white !important;
+}
+
+.btn-custom:hover {
+    background-color: #f26522 !important;
+    border-color: #f26522 !important;
+}
+
+  
+  </style>
 </head>
 
 <body>
@@ -51,120 +220,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col--md-4 col-sm-3 col-xs-4">
-                    <a href="index.html" id="logo"><img src="img/logo.png" width="170" height="30" alt="" data-retina="true">
-                    </a>
-                </div><nav class="col--md-8 col-sm-9 col-xs-8">
-                    <ul id="primary_nav">
-                        <li id="wishlist"><a href="wishlist.html">Wishlist</a>
-                        </li>
-                        <li id="login"><a href="login-register.html">Login</a>
-                        </li>
-                        <li id="buy"><a href="#0">Buy Template</a>
-                        </li>
-                        <li id="search">
-                            <div class="dropdown dropdown-search">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i></a>
-                                <div class="dropdown-menu">
-                                    <form>
-                                        <div id="custom-search-input-header">
-                                            <input type="text" class="form-control" placeholder="Search...">
-                                            <input type="submit" class="btn_search_2" value="submit">
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
-                    <div class="main-menu">
-                        <div id="header_menu">
-                            <img src="img/logo_2.png" alt="img" data-retina="true" width="170" height="30">
-                        </div>
-                        <a href="#" class="open_close" id="close_in"><i class="icon_close"></i></a>
-                        <ul>
-                            <li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu">Home<i class="icon-down-open-mini"></i></a>
-                                <ul>
-                                    <li><a href="index.html">Home Video Backgound </a>
-                                    </li>
-                                    <li><a href="index_2.html">Home Layer Slider</a>
-                                    </li>
-                                    <li><a href="index_3.html">Home Text rotator</a>
-                                    </li>
-                                    <li><a href="index_4.html">Home Cookie bar</a>
-                                    </li>
-                                    <li><a href="index_5.html">Home Popup</a>
-                                    </li>
-                                    <li><a href="index_6.html">Home version 2</a>
-                                    </li>
-                                </ul>
-                                </li>
-                                <li class="submenu">
-                                    <a href="javascript:void(0);" class="show-submenu">Florence travel guides<i class="icon-down-open-mini"></i></a>
-                                    <ul>
-                                        <li><a href="florence-must-see-grid.html">Must see</a>
-                                        </li>
-                                        <li><a href="florence-events-grid.html">Events</a>
-                                        </li>
-                                        <li><a href="florence-hotels-grid.html">Hotels</a>
-                                        </li>
-                                        <li><a href="florence-restaurants-grid.html">Restaurants</a>
-                                        </li>
-                                        <li><a href="florence-bars-grid.html">Cocktails Bars</a>
-                                        </li>
-                                        <li><a href="florence-shops-grid.html">Shops</a>
-                                        </li>
-                                        <li><a href="florence-transports.html">Transports</a>
-                                        </li>
-                                        <li><a href="faq.html">Info&amp;Faqs</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="about.html">About us</a>
-                                </li>
-                                <li><a href="faq.html">Faq</a>
-                                </li>
-                                <li><a href="blog.html">Blog</a>
-                                </li>
-                                <li><a href="contacts.html">Contacts</a>
-                                </li>
-                                <li class="submenu">
-                                    <a href="javascript:void(0);" class="show-submenu">Pages &amp; elements<i class="icon-down-open-mini"></i></a>
-                                    <ul>
-                                        <li><a href="coming_soon/index.html">Site launch/Coming soon</a>
-                                        </li>
-                                        <li><a href="florence-audio-guides.html">Audio guides page</a>
-                                        </li>
-                                        <li><a href="full_screen_map.html">Full screen map</a>
-                                        </li>
-                                        <li><a href="gallery-3-columns.html">Gallery 3 columns</a>
-                                        </li>
-                                        <li><a href="gallery-4-columns.html">Gallery 4 columns</a>
-                                        </li>
-                                        <li><a href="subscribe.html">Subscribe plan</a>
-                                        </li>
-                                        <li><a href="subscribe-working.html">Subscribe plan working</a>
-                                        </li>
-                                        <li><a href="florence-must-see-list.html">List page</a>
-                                        </li>
-                                        <li><a href="florence-must-see-grid.html">Grid page</a>
-                                        </li>
-                                        <li><a href="florence-must-see-map-listing.html">Map list page</a>
-                                        </li>
-                                        <li><a href="icon_pack_1.html"><i class="icon-inbox-alt"></i> Icon pack 1</a>
-                                        </li>
-                                        <li><a href="icon_pack_2.html"><i class="icon-inbox-alt"></i> Icon pack 2</a>
-                                        </li>
-                                        <li><a href="icon_pack_3.html"><i class="icon-inbox-alt"></i> Icon pack 3</a>
-                                        </li>
-                                        <li><a href="shortcodes.html"><i class="icon-tools"></i> Shortcodes</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                        </ul>
+                    <div id="logo_home">
+                        <h1><a href="index.html" title="TravelGuide template">TravelGuide</a></h1>
                     </div>
-                    <!-- End main-menu -->
-                </nav>
+                </div>
+                
             </div>
             <!-- End row -->
         </div>
@@ -173,201 +233,95 @@
     <!-- End Header =============================================== -->
 
     <!-- SubHeader =============================================== -->
-    <section class="parallax_window_in" data-parallax="scroll" data-image-src="img/sub_header_florence_2.jpg" data-natural-width="1400" data-natural-height="420">
-        <div id="sub_content_in">
-            <h1>About TravelGuide</h1>
-            <p>"All what needs to a traveler in Florence...Easly find places, guides, directions, info...."</p>
+    <div id="chat-button">
+        <a href="https://wa.me/94740840238" target="_blank">
+          <img src="../static/img/icon.png" alt="Chat with us" />
+        </a>
+      </div>
+      <section class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="../static/img/1.jpg" alt="Slide 1">
+          </div>
+          <div class="swiper-slide">
+            <img src="../static/img/wildlife.jpg" alt="Slide 2">
+          </div>
+          <div class="swiper-slide">
+            <img src="../static/img/3.jpg" alt="Slide 3">
+          </div>
+          <div class="swiper-slide">
+            <img src="../static/img/4.jpg" alt="Slide 4">
+          </div>
+          <div class="swiper-slide">
+            <img src="../static/img/5.jpg" alt="Slide 5">
+          </div>
+          <div class="swiper-slide">
+            <img src="../static/img/2.jpg" alt="Slide 6">
+          </div>
         </div>
-        <!-- End sub_content -->
+      
+       
+      
+        <!-- Navigation Buttons -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      
+        <!-- Welcome Text Overlay -->
+        <div class="text-overlay">
+          <h2>About Us</h2>
+          <h1>TRAVELGUIDE</h1>
+          <p>The most important info on your mobile during a visit</p>
+          <a href="#" class="btn btn-lg btn-custom">BOOK NOW</a>
+          <a href="/about" class="btn btn-outline-secondary btn-lg">Learn More</a>
+
+        </div>
+      </section>
+
+      <section class="about">
+        <div class="container">
+            <h2>Who We Are</h2>
+            <p>TravelGuide is your ultimate travel companion, providing essential information and personalized recommendations to make your journey unforgettable.</p>
+        </div>
     </section>
-    <!-- End section -->
+
+      
+    
+    <!-- End Header video -->
     <!-- End SubHeader ============================================ -->
 
-    <div id="position">
-        <div class="container">
-            <ul>
-                <li><a href="#">Home</a>
-                </li>
-                <li><a href="#">Category</a>
-                </li>
-                <li>Page active</li>
-            </ul>
-        </div>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+
+        
     </div>
-    <!-- End position -->
-
-    <div class="container margin_60">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="main_title_left">
-                    <h2>Excellent<br>Travel Services Provider</h2>
-                    <p>Ex graeco nostrud theophrastus nam, cum tibique reprimique ad. Mea omittam electram te, eu cum fastidii sapientem delicatissimi.</p>
-                    <span><em></em></span>
-                </div>
-                <p>
-                    Ex has nihil liberavisse philosophia. Ne mazim quidam contentiones usu. Id nec <strong>causae periculis </strong>evertitur, stet menandri an pro, his argumentum appellantur eu. An laudem efficiendi has, utinam principes consequat id vel.</p>
-                <p>Ex graeco nostrud theophrastus nam, cum tibique reprimique ad. Mea omittam electram te, eu cum fastidii sapientem delicatissimi. Sed cu eripuit veritus propriae. An eam choro saperet ullamcorper, eam <strong>saperet rationibus</strong> ut. Cu usu tation quaeque vocibus, alterum torquatos persequeris te ius.</p>
-                <h3>Mission</h3>
-                <p>Ex graeco nostrud theophrastus nam, cum tibique reprimique ad. Mea omittam electram te, eu cum fastidii sapientem delicatissimi. Sed cu eripuit veritus propriae. An eam choro saperet ullamcorper, eam <strong>saperet rationibus</strong> ut. Cu usu tation quaeque vocibus, alterum torquatos persequeris te ius.</p>
-            </div>
-            <div class="col-md-5 col-md-offset-1 hidden-sm hidden-xs">
-                <img src="img/mobile.png" width="316" height="647" alt="" class="img-responsive">
-            </div>
-        </div>
-        <!-- End row -->
-    </div>
-    <!-- End container -->
-
-    <div class="bg_white">
-        <div class="container margin_60">
-            <div class="row">
-                <div class="col-md-6 col-md-push-5">
-                    <div class="main_title_left">
-                        <h3>Quality Team<br>Authors and Reviewers</h3>
-                        <p>Ex graeco nostrud theophrastus nam, cum tibique reprimique ad. Mea omittam electram te, eu cum fastidii sapientem delicatissimi.</p>
-                        <span><em></em></span>
-                    </div>
-                    <p>
-                        Ex has nihil liberavisse philosophia. Ne mazim quidam contentiones usu. Id nec <strong>causae periculis </strong>evertitur, stet menandri an pro, his argumentum appellantur eu. An laudem efficiendi has, utinam principes consequat id vel.</p>
-                    <h4>Filosofy</h4>
-                    <p>Ex graeco nostrud theophrastus nam, cum tibique reprimique ad. Mea omittam electram te, eu cum fastidii sapientem delicatissimi. Sed cu eripuit veritus propriae. An eam choro saperet ullamcorper, eam <strong>saperet rationibus</strong> ut. Cu usu tation quaeque vocibus, alterum torquatos persequeris te ius.</p>
-                </div>
-                <div class="col-md-5 col-md-offset-1 col-md-pull-7 hidden-sm hidden-xs">
-                    <img src="img/team.jpg" alt="" class="img-responsive">
-                </div>
-            </div>
-            <!-- End row -->
-        </div>
-        <!-- End container -->
-    </div>
-    <!-- End white_bg -->
-
-    <section class="promo_full">
-        <div class="promo_full_wp">
-            <div>
-                <h3>What Clients say<span>Id tale utinam ius, an mei omnium recusabo iracundia.</span></h3>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="carousel_testimonials">
-
-                                <div>
-                                    <div class="box_overlay">
-                                        <div class="pic">
-                                            <figure><img src="img/testimonial_1.jpg" alt="" class="img-circle">
-                                            </figure>
-                                            <h4>Roberta<small>12 October 2015</small></h4>
-                                        </div>
-                                        <div class="comment">
-                                            "Mea ad postea meliore fuisset. Timeam repudiare id eum, ex paulo dictas elaboraret sed, mel cu unum nostrud. No nam indoctum accommodare, vix ei discere civibus philosophia. Vis ea dicant diceret ocurreret."
-                                        </div>
-                                    </div>
-                                    <!-- End box_overlay -->
-                                </div>
-
-                                <div>
-                                    <div class="box_overlay">
-                                        <div class="pic">
-                                            <figure><img src="img/testimonial_1.jpg" alt="" class="img-circle">
-                                            </figure>
-                                            <h4>Roberta<small>12 October 2015</small></h4>
-                                        </div>
-                                        <div class="comment">
-                                            "Mea ad postea meliore fuisset. Timeam repudiare id eum, ex paulo dictas elaboraret sed, mel cu unum nostrud. No nam indoctum accommodare, vix ei discere civibus philosophia. Vis ea dicant diceret ocurreret."
-                                        </div>
-                                    </div>
-                                    <!-- End box_overlay -->
-                                </div>
-
-                                <div>
-                                    <div class="box_overlay">
-                                        <div class="pic">
-                                            <figure><img src="img/testimonial_1.jpg" alt="" class="img-circle">
-                                            </figure>
-                                            <h4>Roberta<small>12 October 2015</small></h4>
-                                        </div>
-                                        <div class="comment">
-                                            "Mea ad postea meliore fuisset. Timeam repudiare id eum, ex paulo dictas elaboraret sed, mel cu unum nostrud. No nam indoctum accommodare, vix ei discere civibus philosophia. Vis ea dicant diceret ocurreret."
-                                        </div>
-                                    </div>
-                                    <!-- End box_overlay -->
-                                </div>
-
-                            </div>
-                            <!-- End carousel_testimonials -->
-                        </div>
-                        <!-- End col-md-8 -->
-                    </div>
-                    <!-- End row -->
-                </div>
-                <!-- End container -->
-            </div>
-            <!-- End promo_full_wp -->
-        </div>
-        <!-- End promo_full -->
-    </section>
-    <!-- End section -->
-
+</div>
     <!-- Footer ================================================== -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-12">
-                    <h3>About us</h3>
-                    <p>Dolorem nusquam molestie ut mei, ut sit dico omnis. Cu quod congue has, at sumo esse viderer mea. Id assum saperet definitiones qui.</p>
-                    <p><img src="img/logo_2.png" alt="img" class="hidden-xs" width="170" height="30" data-retina="true">
+                    <h3>Contact Us</h3>
+                    <p>The most important info on your mobile during a visit<p><img src="../static/img/logo_2.png" alt="img" class="hidden-xs" width="170" height="30" data-retina="true">
                     </p>
+                    <p>Phone: +94 74 084 0238</p>
+
                 </div>
                 <div class="col-md-3 col-sm-4">
                     <h3>About</h3>
                     <ul>
-                        <li><a href="#0">About us</a>
-                        </li>
-                        <li><a href="#0">Faq</a>
-                        </li>
-                        <li><a href="#0">Contacts</a>
-                        </li>
-                        <li><a href="#0">Login</a>
-                        </li>
-                        <li><a href="#0">Register</a>
-                        </li>
-                        <li><a href="#0">Terms and conditions</a>
+                        <li><a id="/about" href="about.html">About us</a>
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-3 col-sm-4" id="newsletter">
-                    <h3>Newsletter</h3>
-                    <p>
-                        Join our newsletter to keep be informed about offers and news.
-                    </p>
-                    <div id="message-newsletter_2">
-                    </div>
-                    <form method="post" action="assets/newsletter.php" name="newsletter_2" id="newsletter_2">
-                        <div class="form-group">
-                            <input name="email_newsletter_2" id="email_newsletter_2" type="email" value="" placeholder="Your mail" class="form-control">
-                        </div>
-                        <p>
-                            <input type="submit" value="Subscribe" class="button" id="submit-newsletter_2">
-                        </p>
-                    </form>
-                </div>
-                <div class="col-md-2 col-sm-4">
-                    <h3>Settings</h3>
-                    <div class="styled-select">
-                        <select class="form-control" name="lang" id="lang">
-                            <option value="English" selected>English</option>
-                            <option value="French">French</option>
-                            <option value="Spanish">Spanish</option>
-                            <option value="Russian">Russian</option>
-                        </select>
-                    </div>
-                </div>
+                
+                
             </div>
             <!-- End row -->
             <hr>
             <div class="row">
                 <div class="col-sm-6">
-                    © TravelGuide 2016 - All Rights Reserved
+                    © TravelGuide 2025 - All Rights Reserved
                 </div>
                 <div class="col-sm-6">
                     <div id="social_footer">
@@ -399,29 +353,16 @@
     <script src="assets/validate.js"></script>
     <script src="js/functions.js"></script>
 
-    <!-- SPECIFIC SCRIPTS -->
+    <!-- Specific scripts -->
+    
     <script>
-        'use strict';
-        $('.carousel_testimonials').owlCarousel({
-            items: 1,
-            loop: true,
-            autoplay: false,
-            animateIn: 'flipInX',
-            margin: 30,
-            stagePadding: 30,
-            smartSpeed: 450,
-            responsiveClass: true,
-            responsive: {
-                600: {
-                    items: 1
-                },
-                1000: {
-                    items: 1,
-                    nav: false
-                }
-            }
-        });
+        
+        // Tabs
+        new CBPFWTabs(document.getElementById('tabs'));
     </script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="../static/js/map_home.js"></script>
+    <script src="../static/js/infobox.js"></script>
 
 </body>
 
