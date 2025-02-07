@@ -37,6 +37,12 @@
 
 <!-- Before closing body tag -->
 <script src="static/js/menu.js"></script>
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 
     <!--[if lt IE 9]>
       <script src="js/html5shiv.min.js"></script>
@@ -45,51 +51,46 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-    const swiper = new Swiper('.swiper-container', {
-      loop: true,
-      autoplay: {
-        delay: 3000,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
-  });
-  
-  // Function to handle product clicks
-  function viewProduct(imageSrc, price) {
-          localStorage.setItem("productImage", imageSrc);
-          localStorage.setItem("productPrice", price);
-          window.location.href = "product-details.html";
-        }
-        
+          var swiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+              delay: 3000,
+              disableOnInteraction: false,
+            },
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+            },
+            effect: 'fade', // Optional: Adds a smooth fade effect
+            speed: 1000, // Transition speed
+          });
+        });
       </script>
+      
       
   <style>
     /* Swiper Container */
-  .swiper-container {
-    position: relative;
-    width: 100%;
-    height: 60vh; /* Make height responsive */
-    overflow: hidden;
-  }
-  
-  /* Make the swiper images responsive */
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+    .swiper-container {
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
   
   /* Adjust the welcome text overlay */
   .text-overlay {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10; /* Higher than the slider */
@@ -223,17 +224,7 @@
                         <h1><a href="index.html" title="TravelGuide template">TravelGuide</a></h1>
                     </div>
                 </div>
-                <nav class="col--md-8 col-sm-9 col-xs-8">
-                    <ul id="primary_nav">
-                        <li id="wishlist"><a href="">Wishlist</a>
-                        </li>
-                        <li id="buy"><a href="#0">packages</a>
-                        </li>
-                        
-                    </ul>
-                    
-                    <!-- End main-menu -->
-                </nav>
+                
             </div>
             <!-- End row -->
         </div>
@@ -247,9 +238,8 @@
           <img src="../static/img/icon.png" alt="Chat with us" />
         </a>
       </div>
-    <section class="swiper-container">
+      <section class="swiper-container">
         <div class="swiper-wrapper">
-          <!-- Slides -->
           <div class="swiper-slide">
             <img src="../static/img/1.jpg" alt="Slide 1">
           </div>
@@ -257,39 +247,35 @@
             <img src="../static/img/wildlife.jpg" alt="Slide 2">
           </div>
           <div class="swiper-slide">
-            <img src="../static/img/beach.jpg" alt="Slide 3">
+            <img src="../static/img/3.jpg" alt="Slide 3">
+          </div>
+          <div class="swiper-slide">
+            <img src="../static/img/4.jpg" alt="Slide 4">
+          </div>
+          <div class="swiper-slide">
+            <img src="../static/img/5.jpg" alt="Slide 5">
+          </div>
+          <div class="swiper-slide">
+            <img src="../static/img/2.jpg" alt="Slide 6">
           </div>
         </div>
-        <!-- Pagination -->
-        <div class="swiper-pagination"></div>
-        <!-- Navigation -->
+      
+       
+      
+        <!-- Navigation Buttons -->
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
       
         <!-- Welcome Text Overlay -->
-        <div class="text-overlay" style="
-        background-color: rgba(255, 255, 255, 0.6);
-        backdrop-filter: blur(5px);
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        max-width: 600px;
-        margin: 20px auto;
-        text-align: center;">
-          <h2 style="color: #000000; font-size: 2.0em; text-align: center; margin-bottom: 10px;">
-            Welcome to 
-          </h2>
-          <h1 style="color: #000000; font-size: 3.0em; text-align: center; margin-bottom: 10px;">
-            TRAVELGUIDE
-          </h1>
-          <p style="color: #000000; font-size: 1.2em; text-align: center; line-height: 1.5; margin-bottom: 20px;">
-            The most important info<br>on your Mobile during a visit
-          </p>
+        <div class="text-overlay">
+          <h2>Welcome to</h2>
+          <h1>TRAVELGUIDE</h1>
+          <p>The most important info on your mobile during a visit</p>
           <a href="#" class="btn btn-lg btn-custom">BOOK NOW</a>
-
           <a href="#" class="btn btn-outline-secondary btn-lg">Learn More</a>
         </div>
       </section>
+      
     
     <!-- End Header video -->
     <!-- End SubHeader ============================================ -->
@@ -753,7 +739,7 @@ function addReviewToPage(review) {
             <div class="row">
                 <div class="col-md-4 col-sm-12">
                     <h3>About us</h3>
-                    <p>Description<p><img src="../static/img/logo_2.png" alt="img" class="hidden-xs" width="170" height="30" data-retina="true">
+                    <p>The most important info on your mobile during a visit<p><img src="../static/img/logo_2.png" alt="img" class="hidden-xs" width="170" height="30" data-retina="true">
                     </p>
                 </div>
                 <div class="col-md-3 col-sm-4">
@@ -765,12 +751,7 @@ function addReviewToPage(review) {
                         </li>
                         <li><a href="#0">Contacts</a>
                         </li>
-                        <li><a href="#0">Login</a>
-                        </li>
-                        <li><a href="#0">Register</a>
-                        </li>
-                        <li><a href="#0">Terms and conditions</a>
-                        </li>
+                        
                     </ul>
                 </div>
                 
