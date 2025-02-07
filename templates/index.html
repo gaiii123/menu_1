@@ -42,6 +42,167 @@
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const swiper = new Swiper('.swiper-container', {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  });
+  
+  // Function to handle product clicks
+  function viewProduct(imageSrc, price) {
+          localStorage.setItem("productImage", imageSrc);
+          localStorage.setItem("productPrice", price);
+          window.location.href = "product-details.html";
+        }
+        
+      </script>
+      
+  <style>
+    /* Swiper Container */
+  .swiper-container {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* Make height responsive */
+    overflow: hidden;
+  }
+  
+  /* Make the swiper images responsive */
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Adjust the welcome text overlay */
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Higher than the slider */
+    color: #000000; /* Ensure text is visible on images */
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  /* Responsive adjustments for text overlay */
+  .text-overlay h1 {
+    color: #000000;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .text-overlay p {
+    color: #000000;
+    font-size: 1.2em;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .text-overlay a {
+    margin: 0 10px;
+  }
+  #chat-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      z-index: 1000; /* Ensure it is above other elements */
+    }
+  
+    #chat-button img {
+      width: 40px;
+      height: 40px;
+    }
+  
+    #chat-button:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+  
+  /* Media Query for Responsiveness */
+  @media (max-width: 768px) {
+    .swiper-container {
+      height: 70vh; /* Adjust height for smaller screens */
+    }
+  
+    .text-overlay {
+      max-width: 80%; /* Adjust width for smaller screens */
+      padding: 15px;
+    }
+  
+    .text-overlay h1 {
+      font-size: 1.8em; /* Adjust font size */
+    }
+  
+    .text-overlay p {
+      font-size: 1.0em; /* Adjust font size */
+    }
+  
+    .text-overlay a {
+      font-size: 0.9em; /* Adjust font size for buttons */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .text-overlay {
+      max-width: 90%; /* Further reduce width for very small screens */
+      padding: 10px;
+    }
+  
+    .text-overlay h1 {
+      font-size: 1.5em; /* Adjust font size for very small screens */
+    }
+  
+    .text-overlay p {
+      font-size: 0.9em; /* Adjust font size for very small screens */
+    }
+  
+    .text-overlay a {
+      font-size: 0.8em; /* Adjust font size for very small screens */
+    }
+  }
+
+  .btn-custom {
+    background-color:#f26522 !important;
+    border-color: #f26522 !important;
+    color: white !important;
+}
+
+.btn-custom:hover {
+    background-color: #f26522 !important;
+    border-color: #f26522 !important;
+}
+
+  
+  </style>
 </head>
 
 <body>
@@ -66,23 +227,9 @@
                     <ul id="primary_nav">
                         <li id="wishlist"><a href="">Wishlist</a>
                         </li>
-                        <li id="login"><a href="">Login</a>
-                        </li>
                         <li id="buy"><a href="#0">packages</a>
                         </li>
-                        <li id="search">
-                            <div class="dropdown dropdown-search">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i></a>
-                                <div class="dropdown-menu">
-                                    <form>
-                                        <div id="custom-search-input-header">
-                                            <input type="text" class="form-control" placeholder="Search...">
-                                            <input type="submit" class="btn_search_2" value="submit">
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </li>
+                        
                     </ul>
                     
                     <!-- End main-menu -->
@@ -95,16 +242,55 @@
     <!-- End Header =============================================== -->
 
     <!-- SubHeader =============================================== -->
-    <section class="header-video">
-        <div id="hero_video">
-            <div id="sub_content_in">
-                <h1>The most important info<br>on your Mobile during a visit</h1>
-
-            </div>
-            <!-- End sub_content -->
+    <div id="chat-button">
+        <a href="#" target="_blank">
+          <img src="../static/img/icon.png" alt="Chat with us" />
+        </a>
+      </div>
+    <section class="swiper-container">
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <img src="../static/img/1.jpg" alt="Slide 1">
+          </div>
+          <div class="swiper-slide">
+            <img src="../static/img/wildlife.jpg" alt="Slide 2">
+          </div>
+          <div class="swiper-slide">
+            <img src="../static/img/beach.jpg" alt="Slide 3">
+          </div>
         </div>
-        <img src="../static/img/1.jpg" alt="" class="header-video--media" >
-    </section>
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      
+        <!-- Welcome Text Overlay -->
+        <div class="text-overlay" style="
+        background-color: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(5px);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 20px auto;
+        text-align: center;">
+          <h2 style="color: #000000; font-size: 2.0em; text-align: center; margin-bottom: 10px;">
+            Welcome to 
+          </h2>
+          <h1 style="color: #000000; font-size: 3.0em; text-align: center; margin-bottom: 10px;">
+            TRAVELGUIDE
+          </h1>
+          <p style="color: #000000; font-size: 1.2em; text-align: center; line-height: 1.5; margin-bottom: 20px;">
+            The most important info<br>on your Mobile during a visit
+          </p>
+          <a href="#" class="btn btn-lg btn-custom">BOOK NOW</a>
+
+          <a href="#" class="btn btn-outline-secondary btn-lg">Learn More</a>
+        </div>
+      </section>
+    
     <!-- End Header video -->
     <!-- End SubHeader ============================================ -->
 
@@ -149,7 +335,7 @@
                 <a href="">
                     <span>43</span>
                     <i class="icon_set_1_icon-58"></i>
-                    <h3>Restaurants</h3>
+                    <h3>Destinations</h3>
                     <p>
                         description 1
                     </p>
@@ -168,7 +354,7 @@
             <div class="main_title">
                 <h2><strong>Most Viewed</strong> in TravelGuide</h2>
                 <p>
-                    description 1 </p>
+                    Plan You Dream Vacation in Sri Lanka </p>
                 <span><em></em></span>
             </div>
             <!-- End main_title -->
@@ -196,13 +382,13 @@
                         <!-- End tools i-->
                         <div class="img_container_grid">
                             <a href="">
-                                <img src="../static/img/grid_home_1.jpg" width="800" height="480" class="img-responsive" alt="">
+                                <img src="../static/img/family.jpg" width="800" height="480" class="img-responsive" alt="">
                                 <div class="short_info_grid">
-                                    <small><strong>Duration: 90 min.</strong></small>
-                                    <h3>package 1</h3>
-                                    <em>Historic Buildings</em>
+                                    <small><strong></strong></small>
+                                    <h3>FAMILY</h3>
+                                    <em>A family that travel together stays together</em>
                                     <p>
-                                        Read more
+                                        BOOK NOW
                                     </p>
                                 </div>
                             </a>
@@ -232,13 +418,13 @@
                         <!-- End tools i-->
                         <div class="img_container_grid">
                             <a href="">
-                                <img src="../static/img/grid_home_3.jpg" width="800" height="468" class="img-responsive" alt="">
+                                <img src="../static/img/hiking.jpg" width="800" height="468" class="img-responsive" alt="">
                                 <div class="short_info_grid">
-                                    <small><strong>Duration: 60 min.</strong></small>
-                                    <h3>package 2</h3>
-                                    <em>Trinco</em>
+                                    <small><strong></strong></small>
+                                    <h3>TREKKING AND HIKING</h3>
+                                    <em>Life is daring adventure or nothing</em>
                                     <p>
-                                        Read more
+                                        BOOK NOW
                                     </p>
                                 </div>
                             </a>
@@ -266,13 +452,13 @@
                         <!-- End tools i-->
                         <div class="img_container_grid">
                             <a href="">
-                                <img src="../static/img/grid_home_2.jpg" width="800" height="468" class="img-responsive" alt="">
+                                <img src="../static/img/honeymoon.jpg" width="800" height="468" class="img-responsive" alt="">
                                 <div class="short_info_grid">
-                                    <small><strong>From 95$</strong></small>
-                                    <h3>Hotel cinnomen</h3>
-                                    <em>Hotels</em>
+                                    <small><strong></strong></small>
+                                    <h3>HONEYMOON</h3>
+                                    <em>Lets travel together and get lost in this beautiful island</em>
                                     <p>
-                                        Read more
+                                        BOOK NOW
                                     </p>
                                 </div>
                             </a>
@@ -305,13 +491,13 @@
                         <!-- End tools i-->
                         <div class="img_container_grid">
                             <a href="">
-                                <img src="../static/img/grid_home_4.jpg" width="800" height="468" class="img-responsive" alt="">
+                                <img src="../static/img/wildlife.jpg" width="800" height="468" class="img-responsive" alt="">
                                 <div class="short_info_grid">
-                                    <small><strong>From 30$</strong></small>
-                                    <h3>Pizza</h3>
-                                    <em>Restaurant</em>
+                                    <small><strong></strong></small>
+                                    <h3>WILD LIFE</h3>
+                                    <em>The only man i envy is the man who has not yet been to the wild</em>
                                     <p>
-                                        Read more
+                                        BOOK NOW
                                     </p>
                                 </div>
                             </a>
@@ -341,13 +527,13 @@
                         <!-- End tools i-->
                         <div class="img_container_grid">
                             <a href="">
-                                <img src="../static/img/grid_home_5.jpg" width="800" height="468" class="img-responsive" alt="">
+                                <img src="../static/img/culture.jpg" width="800" height="468" class="img-responsive" alt="">
                                 <div class="short_info_grid">
-                                    <small><strong>From 20$</strong></small>
-                                    <h3>La Pub</h3>
-                                    <em>Bar - Pun</em>
+                                    <small><strong></strong></small>
+                                    <h3>CULTURE</h3>
+                                    <em>You have to taste a culture to understand it</em>
                                     <p>
-                                        Read more
+                                        BOOK NOW
                                     </p>
                                 </div>
                             </a>
@@ -377,12 +563,12 @@
                         <!-- End tools i-->
                         <div class="img_container_grid">
                             <a href="">
-                                <img src="../static/img/grid_home_6.jpg" width="800" height="468" class="img-responsive" alt="">
+                                <img src="../static/img/beach.jpg" width="800" height="468" class="img-responsive" alt="">
                                 <div class="short_info_grid">
-                                    <h3>Shopping Mall</h3>
-                                    <em>Shop</em>
+                                    <h3>BEACH</h3>
+                                    <em>Sky above, sand below, Peace within</em>
                                     <p>
-                                        Read more
+                                        BOOK NOW
                                     </p>
                                 </div>
                             </a>
@@ -587,22 +773,7 @@ function addReviewToPage(review) {
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-3 col-sm-4" id="newsletter">
-                    <h3>Newsletter</h3>
-                    <p>
-                        Join our newsletter to keep be informed about offers and news.
-                    </p>
-                    <div id="message-newsletter_2">
-                    </div>
-                    <form method="post" action="" name="newsletter_2" id="newsletter_2">
-                        <div class="form-group">
-                            <input name="email_newsletter_2" id="email_newsletter_2" type="email" value="" placeholder="Your mail" class="form-control">
-                        </div>
-                        <p>
-                            <input type="submit" value="Subscribe" class="button" id="submit-newsletter_2">
-                        </p>
-                    </form>
-                </div>
+                
                 
             </div>
             <!-- End row -->
