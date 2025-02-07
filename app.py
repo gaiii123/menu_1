@@ -32,14 +32,74 @@ socketio = SocketIO(app, cors_allowed_origins="*")  # Enable real-time support
 db = client[dbname]
 reviews_collection = db["reviews"]
 
+packages = {
+    "family": {
+        "title": "FAMILY PACKAGE",
+        "description": "A family that travels together stays together.",
+        "images": [
+            "../static/img/photo/family/2.jpeg",
+            "../static/img/photo/family/3.jpeg",
+            "../static/img/photo/family/4.jpeg"
+        ]
+    },
+    "hiking": {
+        "title": "TREKKING AND HIKING",
+        "description": "Life is a daring adventure or nothing.",
+        "images": [
+            "../static/img/photo/hiking/5.jpeg",
+            "../static/img/photo/hiking/6.jpeg",
+            "../static/img/photo/hiking/4.jpeg"
+        ]
+    },
+    "love": {
+        "title": "HONEYMOON",
+        "description": "Lets travel together and get lost in this beautiful island",
+        "images": [
+            "../static/img/photo/love/1.jpeg",
+            "../static/img/photo/love/2.jpeg",
+            "../static/img/photo/love/3.jpeg"
+        ]
+    },
+    "wild": {
+        "title": "WILD LIFE",
+        "description": "The only man i envy is the man who has not yet been to the wild",
+        "images": [
+            "../static/img/photo/wild/1.jpeg",
+            "../static/img/photo/wild/2.jpeg",
+            "../static/img/photo/wild/3.jpeg"
+        ]
+},"culture": {
+        "title": "CULTURE",
+        "description": "You have to taste a culture to understand it",
+        "images": [
+            "../static/img/photo/culture/1.jpeg",
+            "../static/img/photo/culture/2.jpeg",
+            "../static/img/photo/culture/3.jpeg"
+        ]
+},
+"beach": {
+        "title": "BEACH",
+        "description": "Sky above, sand below, Peace within",
+        "images": [
+            "../static/img/photo/beach/1.jpeg",
+            "../static/img/photo/beach/2.jpeg",
+            "../static/img/photo/beach/3.jpeg"
+        ]
+},
+}
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
+@app.route('/package/<package_id>')
+def package_details(package_id):
+    # Fetch package details based on package_id
+    package = packages.get(package_id)
+    if package:
+        return render_template('package_details.html', package=package)
+    else:
+        return "Package not found", 404
 
 
 @app.route('/add_review', methods=['POST'])

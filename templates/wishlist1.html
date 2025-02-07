@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Ansonika">
+    <title>TravelGuide - Easily find places, guides, directions, info.</title>
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="{{ url_for('static', filename='img/apple-touch-icon-57x57-precomposed.png') }}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{ url_for('static', filename='img/apple-touch-icon-72x72-precomposed.png') }}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{{ url_for('static', filename='img/apple-touch-icon-114x114-precomposed.png') }}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{{ url_for('static', filename='img/apple-touch-icon-144x144-precomposed.png') }}">
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,300" rel="stylesheet" type="text/css">
+
+    <!-- BASE CSS -->
+    <link href="{{ url_for('static', filename='css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/menu.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/icon_fonts/css/all_icons.min.css') }}" rel="stylesheet">
+
+    <!-- YOUR CUSTOM CSS -->
+    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+
+    <!-- Modernizr -->
+    <script src="{{ url_for('static', filename='js/modernizr.js') }}"></script>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        #chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            z-index: 1000; /* Ensure it is above other elements */
+        }
+
+        #chat-button img {
+            width: 40px;
+            height: 40px;
+        }
+
+        #chat-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .btn-custom {
+            background-color: #f26522 !important;
+            border-color: #f26522 !important;
+            color: white !important;
+        }
+
+        .btn-custom:hover {
+            background-color: #f26522 !important;
+            border-color: #f26522 !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--[if lte IE 8]>
+        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
+    <![endif]-->
+
+    <div class="layer"></div>
+    <!-- Menu mask -->
+
+    <!-- Header ================================================== -->
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 col-sm-3 col-xs-4">
+                    <div id="logo_home">
+                        <h1><a href="{{ url_for('index') }}" title="TravelGuide template">TravelGuide</a></h1>
+                    </div>
+                </div>
+            </div>
+            <!-- End row -->
+        </div>
+        <!-- End container -->
+    </header>
+    <!-- End Header =============================================== -->
+
+    <!-- SubHeader =============================================== -->
+    <div id="chat-button">
+        <a href="https://wa.me/94740840238" target="_blank">
+            <img src="{{ url_for('static', filename='img/icon.png') }}" alt="Chat with us" />
+        </a>
+    </div>
+
+    <div class="container margin_60_30">
+        <div class="row">
+            <aside class="col-md-3 col-md-push-9" id="sidebar">
+                <div class="theiaStickySidebar">
+                    <div id="filters_col">
+                        <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt">Filters </a>
+                        <div class="collapse" id="collapseFilters">
+                            <div class="filter_type">
+                                <h6>Duration</h6>
+                                <input type="text" id="range" name="range" value="">
+                            </div>
+                            <div class="filter_type">
+                                <h6>Review score</h6>
+                                <ul>
+                                    <li>
+                                        <label>Superb: 9+ (77)</label>
+                                        <input type="checkbox" class="js-switch" checked>
+                                    </li>
+                                    <li>
+                                        <label>Very good: 8+ (552)</label>
+                                        <input type="checkbox" class="js-switch">
+                                    </li>
+                                    <li>
+                                        <label>Good: 7+ (909)</label>
+                                        <input type="checkbox" class="js-switch">
+                                    </li>
+                                    <li>
+                                        <label>Pleasant: 6+ (1196)</label>
+                                        <input type="checkbox" class="js-switch">
+                                    </li>
+                                    <li>
+                                        <label>No rating (198)</label>
+                                        <input type="checkbox" class="js-switch">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="filter_type">
+                                <h6>Type</h6>
+                                <ul>
+                                    <li>
+                                        <label>Historic (77)</label>
+                                        <input type="checkbox" class="js-switch" checked>
+                                    </li>
+                                    <li>
+                                        <label>Monuments (552)</label>
+                                        <input type="checkbox" class="js-switch">
+                                    </li>
+                                    <li>
+                                        <label>Interesting (909)</label>
+                                        <input type="checkbox" class="js-switch">
+                                    </li>
+                                    <li>
+                                        <label>Architectural (1196)</label>
+                                        <input type="checkbox" class="js-switch">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--End collapse -->
+                    </div>
+                    <!--End filters col-->
+                </div>
+                <!--End sticky -->
+            </aside>
+            <!--End aside -->
+
+            <div class="col-md-9 col-md-pull-3">
+                <div class="strip_list wow fadeIn">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="img_wrapper">
+                                <div class="ribbon">
+                                    <span>Popular</span>
+                                </div>
+                                <div class="img_container">
+                                    <a href="#">
+                                        <img src="{{ url_for('static', filename='img/must_see_list_1.jpg') }}" width="800" height="533" class="img-responsive" alt="">
+                                        <div class="short_info">
+                                            <small>1.30 min</small>
+                                            <h3>Duomo Cathedral</h3>
+                                            <em>Architectural Buildings</em>
+                                            <div class="score_wp">Superb
+                                                <div id="score_1" class="score" data-value="7.5"></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!--End img_wrapper-->
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="desc">
+                                <h4>"Don't miss a famous cathedral"</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, at omnes deseruisse pri. Quo aeterno legimus insolens ad. Sit cu detraxit constituam, an mel iudico constituto efficiendi.
+                                </p>
+                                <p><a href="#" class="button small">Read more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End row -->
+                </div>
+                <!--End strip -->
+            </div>
+            <!-- End col lg 9 -->
+        </div>
+        <!-- End Row-->
+    </div>
+    <!-- End container -->
+
+    <!-- Footer ================================================== -->
+    <footer class="footer1" style="background-color: #3b4046;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h2 style="color: rgb(250, 74, 104);">About Us</h2>
+                    <p style="color: #fff;">The most important info on your mobile during a visit<p><img src="{{ url_for('static', filename='img/logo_2.png') }}" alt="img" class="hidden-xs" width="170" height="30" data-retina="true">
+                    </p>
+                    <p style="color: #fff;">Phone: +94 74 084 0238</p>
+                </div>
+            </div>
+            <!-- End row -->
+            <hr>
+            <div class="row">
+                <div class="col-sm-6" style="color: #fff;">
+                    © TravelGuide 2025 - All Rights Reserved
+                </div>
+                <div class="col-sm-6">
+                    <div id="social_footer">
+                        <ul>
+                            <li><a href="#0"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#0"><i class="icon-google"></i></a></li>
+                            <li><a href="#0"><i class="icon-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- End row -->
+        </div>
+        <!-- End container -->
+    </footer>
+    <!-- End Footer =============================================== -->
+
+    <!-- COMMON SCRIPTS -->
+    <script src="{{ url_for('static', filename='js/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/common_scripts_min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/validate.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/functions.js') }}"></script>
+
+    <!-- Specific scripts -->
+    <script>
+        // Tabs
+        new CBPFWTabs(document.getElementById('tabs'));
+    </script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="{{ url_for('static', filename='js/map_home.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/infobox.js') }}"></script>
+</body>
+
+</html>
