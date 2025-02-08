@@ -49,32 +49,53 @@
       <script src="js/respond.min.js"></script>
     <![endif]-->
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          var swiper = new Swiper('.swiper-container', {
-            loop: true,
-            autoplay: {
-              delay: 3000,
-              disableOnInteraction: false,
-            },
-            navigation: {
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-            },
-            pagination: {
-              el: '.swiper-pagination',
-              clickable: true,
-            },
-            effect: 'fade', // Optional: Adds a smooth fade effect
-            speed: 1000, // Transition speed
-          });
-        });
-      </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // First Slider Initialization
+    var swiper1 = new Swiper('.first-slider', {
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: '.first-slider-next',
+            prevEl: '.first-slider-prev',
+        },
+        pagination: {
+            el: '.first-slider-pagination',
+            clickable: true,
+        },
+        effect: 'fade',
+        speed: 1000,
+    });
+
+    // Second Slider Initialization
+    var swiper2 = new Swiper('.second-slider', {
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: '.second-slider-next',
+            prevEl: '.second-slider-prev',
+        },
+        pagination: {
+            el: '.second-slider-pagination',
+            clickable: true,
+        },
+        effect: 'fade',
+        speed: 1000,
+    });
+});
+
+</script>
       
       
-  <style>
+<style>
     /* Swiper Container */
-    .swiper-container {
+.swiper-container {
   width: 100%;
   height: 90vh;
 
@@ -87,7 +108,9 @@
   object-fit: cover;
 }
 
-  
+
+ /* Second Slider Specific Styles */
+
   /* Adjust the welcome text overlay */
   .text-overlay {
     position: absolute;
@@ -97,7 +120,6 @@
     z-index: 10; /* Higher than the slider */
     color: #000000; /* Ensure text is visible on images */
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(5px);
     padding: 20px;
     border-radius: 10px;
@@ -110,7 +132,7 @@
   /* Responsive adjustments for text overlay */
   .text-overlay h1 {
     color: #000000;
-    font-size: 2.8em;
+    font-size:3.0em;
     text-align: center;
     margin-bottom: 10px;
   }
@@ -145,7 +167,7 @@
     .swiper-container {
       height: 100vh; /* Adjust height for smaller screens */
     }
-  
+ 
     .text-overlay {
       max-width: 90%;
     margin-top: 80px; /* Further reduce width for smaller screens */
@@ -233,43 +255,33 @@
         <a href="https://wa.me/94740840238" target="_blank">
           <img src="../static/img/icon.png" alt="Chat with us" />
         </a>
-      </div>
-      <section class="swiper-container">
+    </div>
+    <section class="swiper-container first-slider">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="../static/img/photo/wild/8.jpeg" alt="Slide 1">
-          </div>
-          <div class="swiper-slide">
-            <img src="../static/img/photo/culture/2.jpeg" alt="Slide 2">
-          </div>
-          <div class="swiper-slide">
-            <img src="../static/img/photo/family/3.jpeg" alt="Slide 3">
-          </div>
-          <div class="swiper-slide">
-            <img src="../static/img/photo/hiking/6.jpeg" alt="Slide 4">
-          </div>
-          <div class="swiper-slide">
-            <img src="../static/img/photo/wild/1.jpeg" alt="Slide 5">
-          </div>
-          <div class="swiper-slide">
-            <img src="../static/img/photo/love/1.jpeg" alt="Slide 6">
-          </div>
+            <div class="swiper-slide"><img src="../static/img/photo/wild/8.jpeg" alt="Slide 1"></div>
+            <div class="swiper-slide"><img src="../static/img/photo/culture/2.jpeg" alt="Slide 2"></div>
+            <div class="swiper-slide"><img src="../static/img/photo/family/3.jpeg" alt="Slide 3"></div>
+            <div class="swiper-slide"><img src="../static/img/photo/hiking/6.jpeg" alt="Slide 4"></div>
+            <div class="swiper-slide"><img src="../static/img/photo/wild/1.jpeg" alt="Slide 5"></div>
+            <div class="swiper-slide"><img src="../static/img/photo/love/1.jpeg" alt="Slide 6"></div>
         </div>
-      
-       
-      
-        
-        <!-- Welcome Text Overlay -->
+        <div class="swiper-button-next first-slider-next"></div>
+        <div class="swiper-button-prev first-slider-prev"></div>
+        <div class="swiper-pagination first-slider-pagination"></div>
+    </section>
+            <!-- Welcome Text Overlay -->
         <div class="text-overlay" >
           <h2>Welcome to</h2>
-          <h1>TRAVELGUIDE</h1>
+          <h1 style="color: #ffd700;">SRI LANKA</h1>
           <p>The most important info on your mobile during a visit</p>
-          <a href="#" class="btn btn-lg btn-custom">BOOK NOW</a>
-          <a href="#footer" class="btn btn-outline-secondary btn-lg">Learn More</a>
+          <a href="{{ url_for('all_packages') }}" id="all_packages" class="btn btn-lg btn-custom">BOOK NOW</a>
+          <a href="footer" class="btn btn-outline-secondary btn-lg">Learn More</a>
 
         </div>
-      </section>
-      
+        
+        <!-- New Slider Section -->
+    <!-- Second Slider -->
+
     
     <!-- End Header video -->
     <!-- End SubHeader ============================================ -->
@@ -385,26 +397,7 @@
                         </div>
                     </div>
                     <!-- End img_wrapper_grid -->
-                    <div class="img_wrapper_grid">
-                        <div class="ribbon">
-                            <span>Popular</span>
-                        </div>
-                        
-                        <!-- End tools i-->
-                        <div class="img_container_grid">
-                            <a href="{{ url_for('package_details', package_id='love') }}">
-                                <img src="../static/img/photo/love/3.jpeg" width="800" height="468" class="img-responsive" alt="">
-                                <div class="short_info_grid">
-                                    <small><strong></strong></small>
-                                    <h3>HONEYMOON</h3>
-                                    <em>Lets travel together and get lost in this beautiful island</em>
-                                    <p>
-                                        BOOK NOW
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    
                     <!-- End img_wrapper_grid -->
                 </div>
             </div>
@@ -479,10 +472,105 @@
                     <!-- End img_wrapper_grid -->
                 </div>
             </div>
+            <p href="{{ url_for('all_packages') }}" class="btn btn-lg btn-custom" style="margin-left: 50%;">All packages</p>
             <!-- End row -->
         </div>
+    </div>
         <!-- End container -->
 
+        <div class="pattern_dots">
+            <div class="container margin_60_45"style=" background-color: rgb(53, 41, 41);width: 100%;;" >
+                <div class="main_title" >
+                    <h2><strong>EXPLORE</strong> DESTINATIONS</h2>
+                    <h3 style="color: rgb(255, 255, 255);"></h3>
+                        Explore the beautiful destinations in Sri Lanka </p>
+                    <span><em></em></span>
+                </div>
+                <!-- End main_title -->
+    
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="img_wrapper_grid">
+                            <div class="img_container_grid" id="image1">
+                                <a href="{{ url_for('destination_details') }}">
+                                    <img src="../static/img/photo/culture/1.jpeg" width="800" height="480" class="img-responsive" alt="">
+                                    <div class="short_info_grid">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End img_wrapper_grid -->
+                    </div>
+                    <div class="col-md-4">
+                        <div class="img_wrapper_grid">
+                            <div class="img_container_grid">
+                                <a href="{{ url_for('destination_details') }}">
+                                    <img src="../static/img/photo/culture/11.jpeg" width="800" height="468" class="img-responsive" alt="">
+                                    <div class="short_info_grid">
+                                        </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End img_wrapper_grid -->
+                        <div class="img_wrapper_grid">
+                            <div class="img_container_grid">
+                                <a href="{{ url_for('destination_details') }}">
+                                    <img src="../static/img/photo/love/1.jpeg" width="800" height="468" class="img-responsive" alt="">
+                                    <div class="short_info_grid">
+                                        </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End img_wrapper_grid -->
+                    </div>
+                </div>
+                <!-- End row -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="img_wrapper_grid">
+                            <div class="img_container_grid">
+                                <a href="{{ url_for('destination_details') }}">
+                                    <img src="../static/img/photo/wild/7.jpeg" width="800" height="468" class="img-responsive" alt="">
+                                    <div class="short_info_grid">
+                                        </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End img_wrapper_grid -->
+                    </div>
+                    <div class="col-md-4">
+                        <div class="img_wrapper_grid">
+                            <div class="img_container_grid">
+                                <a href="{{ url_for('destination_details') }}">
+                                    <img src="../static/img/photo/family/6.jpeg" width="800" height="468" class="img-responsive" alt="">
+                                    <div class="short_info_grid">
+                                        </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End img_wrapper_grid -->
+                    </div>
+                    <div class="col-md-4">
+                        <div class="img_wrapper_grid">
+                            <div class="img_container_grid">
+                                <a href="{{ url_for('destination_details') }}">
+                                    <img src="../static/img/photo/culture/12.jpeg" width="800" height="468" class="img-responsive" alt="">
+                                    <div class="short_info_grid">
+                                        </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End img_wrapper_grid -->
+                    </div>
+                    
+                </div>
+                <p href="{{ url_for('destination_details') }}" class="btn btn-lg btn-custom" style="margin-left: 50%;">All Destinations</p>
+                <!-- End row -->
+            </div>
+        </div>
+
+        
+              
         
     <div class="container1"style="background-color: #363e47;">
         <div class="container margin_60_30">

@@ -22,22 +22,6 @@
                 border-radius: 50%;
                 box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
             }
-            .btn-custom {
-    background-color:#f26522 !important;
-    border-color: #f26522 !important;
-    color: white !important;
-}
-
-.btn-custom:hover {
-    background-color: #f26522 !important;
-    border-color: #f26522 !important;
-}
-.rating {
-            color: #ffd700;
-            margin-bottom: 10px;
-        }
-
-
         </style>
         <div class="container-fluid">
             <div class="row">
@@ -58,31 +42,68 @@
     <div class="container margin_60" >
         <div class="row">
             <div class="col-md-12">
-                <h1 style="color: #fff;">{{ package.title }}</h1>
-                <p>{{ package.description }}</p>
-                <div class="rating">
-                    <id="star5" name="rating" value="5"/>
-                    <label for="star5" style="color: #ffd700;">★</label>
-                    <id="star4" name="rating" value="4" />
-                    <label for="star4"style="color: #ffd700;">★</label>
-                    <id="star3" name="rating" value="3" />
-                    <label for="star3"style="color: #ffd700;">★</label>
-                    <id="star2" name="rating" value="2" />
-                    <label for="star2"style="color: #ffd700;">★</label>
-                    <id="star1" name="rating" value="1" />
-                    <label for="star1"style="color: #ffd700;">★</label>
-                </div>
+                <h1 style="color: #fff;">Yala</h1>
+                <p>Yala 1</p>
                 <div class="row">
-                    {% for image in package.images %}
+                    
                     <div class="col-md-4">
-                        <img src="{{ url_for('static', filename=image) }}" class="img-responsive" alt="{{ package.title }}">
+                        <img src="/static/img/photo/wild/8.jpeg" class="img-responsive" >
                     </div>
-                    {% endfor %}
+                    <div class="col-md-4">
+                        <img src="/static/img/photo/wild/13.jpeg" class="img-responsive" >
+                    </div>
+                    
                 </div>
-                <a href="{{ url_for('book_package') }}" class="btn btn-lg btn-custom" style="margin-left: 50%;">BOOK NOW</a>
-            
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="color: #fff;">Kandy</h1>
+                <p>Yala 1</p>
+                <div class="row">
+                    
+                    <div class="col-md-4">
+                        <img src="/static/img/photo/culture/2.jpeg" class="img-responsive" >
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/static/img/photo/family/7.jpeg" class="img-responsive" >
+                    </div>  
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="color: #fff;">Colombo</h1>
+                <p>Yala 1</p>
+                <div class="row">
+                    
+                    <div class="col-md-4">
+                        <img src="/static/img/photo/family/6.jpeg" class="img-responsive" >
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="color: #fff;">Ella</h1>
+                <p>Ella</p>
+                <div class="row">
+                    
+                    <div class="col-md-4">
+                        <img src="/static/img/photo/family/3.jpeg" class="img-responsive" >
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+
+        
     </div>
 </div>
     <footer class="footer1" style="background-color: #3b4046;">

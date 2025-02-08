@@ -1,11 +1,12 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for, flash
 from pymongo import MongoClient
+from flask_mail import Mail, Message  # Import Flask-Mail
 from datetime import datetime
 from bson.objectid import ObjectId
 from urllib.parse import quote_plus
 import os
 from dotenv import load_dotenv
-from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO, emit  # Import Flask-Mail
 
 
 # Load environment variables from .env file
@@ -16,16 +17,30 @@ username = quote_plus(os.getenv("MONGO_USERNAME"))
 password = quote_plus(os.getenv("MONGO_PASSWORD"))
 cluster = os.getenv("MONGO_CLUSTER")
 dbname = os.getenv("MONGO_DBNAME")
+admin_email = os.getenv("ADMIN_EMAIL") 
 
 # Check if credentials exist
-if not username or not password or not cluster:
-    raise ValueError("MongoDB credentials are missing. Set them in the .env file.")
+if not username or not password or not cluster or not admin_email:
+    raise ValueError("MongoDB credentials or Admin Email are missing. Set them in the .env file.")
+
 
 # MongoDB Connection String
 connection_string = f"mongodb+srv://{username}:{password}@{cluster}/{dbname}?retryWrites=true&w=majority"
 client = MongoClient(connection_string)
 
 app = Flask(__name__)
+
+# Configure Flask-Mail
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # Use your email provider's SMTP server
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = os.getenv("MAIL_USERNAME")  # Your email address
+app.config['MAIL_PASSWORD'] = os.getenv("MAIL_PASSWORD")  # Your email password
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv("MAIL_USERNAME")  # Sender's email
+
+mail = Mail(app)
+
 socketio = SocketIO(app, cors_allowed_origins="*")  # Enable real-time support
 
 # MongoDB connection
@@ -88,6 +103,8 @@ packages = {
 },
 }
 
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -100,6 +117,62 @@ def package_details(package_id):
         return render_template('package_details.html', package=package)
     else:
         return "Package not found", 404
+    
+@app.route('/destination_details')
+def destination_details():
+    # Fetch package details based on package_id
+    
+        return render_template('destination_details.html')
+@app.route('/all_packages')
+def all_packages():
+    # Fetch package details based on package_id
+    
+        return render_template('all_packages.html')
+@app.route('/book_package', methods=['GET', 'POST'])
+def book_package():
+    if request.method == 'POST':
+        fullname = request.form.get('fullname')
+        country = request.form.get('country')
+        email = request.form.get('email')
+        phone = request.form.get('phone')
+        plan = request.form.get('plan')
+
+        print("Received Data:", fullname, country, email, phone, plan)  # Debugging
+
+        # Send email to admin
+        send_booking_email(fullname, country, email, phone, plan)
+
+        # Return JSON response indicating success
+        return jsonify({'status': 'success', 'message': 'Booking submitted successfully!'})
+
+    return render_template('book_package.html')
+
+# Function to send an email
+import smtplib
+from email.mime.text import MIMEText
+
+def send_booking_email(fullname, country, email, phone, plan):
+    try:
+        admin_email = os.getenv("ADMIN_EMAIL")
+        subject = "New Package Booking Request"
+        message = f"""
+        New package booking request:
+        Full Name: {fullname}
+        Country: {country}
+        Email: {email}
+        Phone: {phone}
+        Selected Plan: {plan}
+        """
+
+        msg = Message(subject=subject, recipients=[admin_email])
+        msg.body = message
+
+        mail.send(msg)  # Send email
+        print("Email sent successfully!")
+
+    except Exception as e:
+        print("Error sending email:", str(e))
+
 
 
 @app.route('/add_review', methods=['POST'])

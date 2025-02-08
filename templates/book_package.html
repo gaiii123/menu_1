@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Details - TravelGuide</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <style>
+            #chat-button {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 100;
+            }
+            #chat-button img {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            }
+            #toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    z-index: 9999;
+}
+
+        </style>
+
+<script>
+    document.getElementById('subscribe-plan').addEventListener('submit', function(event) {
+
+        event.preventDefault(); // Prevent page reload
+    
+        let formData = new FormData(this);
+    
+        fetch('/book_package', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert('Booking successful!'); 
+                window.location.href = '/';  // Redirect or show success message
+            } else {
+                alert('Booking failed: ' + data.message);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+
+    // Function to show toast message
+    function showToast(message, type = 'success') {
+        const toast = document.getElementById('toast');
+        toast.style.display = 'block';
+        toast.innerText = message;
+
+        // Hide toast after 3 seconds
+        setTimeout(() => {
+            toast.style.display = 'none';
+        }, 3000);
+    }
+
+    // Handle form submission and show toast message
+    document.getElementById('subscribe-plan').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent page reload
+    
+        let formData = new FormData(this);
+    
+        fetch('/book_package', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                // Show toast message
+                showToast('Booking submitted successfully!');
+                
+                // Clear the form fields
+                document.getElementById('subscribe-plan').reset();
+
+                // Optionally, redirect or take other actions
+                // window.location.href = '/';  // Redirect to home page or another page
+            } else {
+                showToast('Booking failed: ' + data.message, 'error');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+    </script>
+     
+    
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 col-sm-3 col-xs-4">
+                    <div id="logo_home">
+                        <h1><a href="{{ url_for('index') }}" title="TravelGuide">TravelGuide</a></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="chat-button">
+        <a href="https://wa.me/94740840238" target="_blank">
+          <img src="../static/img/icon.png" alt="Chat with us" />
+        </a>
+    
+    </div>
+    <div style="background-color: #3b4046;">
+    <div class="container margin_60_30">
+        <div class="row">
+        <form method="post" id="subscribe-plan">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="box_style_general">
+                    <div class="form_title">
+                        <h3><strong>1</strong>Your Details</h3>
+                        <p>
+                            Fill Your Details
+                        </p>
+                    </div>
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label>Full name</label>
+                                    <input type="text" class="form-control" id="fullname" name="fullname">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label>Country</label>
+                                    <input type="text" class="form-control" id="country" name="country">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" id="email" name="email" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Telephone</label>
+                                    <input type="text" id="phone" name="phone" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End step -->
+                    <hr>
+                    <div class="form_title">
+                        <h3><strong>2</strong>Choose a package</h3>
+                        <p>
+                            Explore the best packages
+                        </p>
+                    </div>
+                    <div class="step">
+                        <div class="styled-select-2">
+                            <select class="form-control" name="plan" id="plan">
+                            	<option value="">Select</option>
+                                <option value="wild-life">Wild Life</option>
+                                <option value="Honeymoon">Honeymoon</option>
+                                <option value="beach">Beach</option>
+                                <option value="culture">Culture</option>
+                                <option value="family">Family</option>
+                                <option value="hiking">Hiking</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--End step -->
+                    <hr>
+                    
+                    
+                </div>
+                <p class="text-center">
+                    <input name="susbcribe" type="submit" class="button" value="Submit" id="submit-plan">
+                </p>
+            </div>
+            </form>
+            <!-- Add this HTML for the toast -->
+<div id="toast" style="position: fixed; bottom: 20px; right: 20px; padding: 10px 20px; background-color: #28a745; color: white; border-radius: 5px; display: none;">
+    Booking submitted successfully!
+</div>
+        </div>
+        <!-- End row -->
+    </div>
+</div>
+    
+    
+
+        
+    </div>
+</div>
+    <footer class="footer1" style="background-color: #3b4046;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h2 style="color: rgb(250, 74, 104);">About Us</h2>
+                    <p style="color: #fff;">The most important info on your mobile during a visit<p><img src="{{ url_for('static', filename='img/logo_2.png') }}" alt="img" class="hidden-xs" width="170" height="30" data-retina="true">
+                    </p>
+                    <p style="color: #fff;">Phone: +94 74 084 0238</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6" style="color: #fff;">
+                    © TravelGuide 2025 - All Rights Reserved
+                </div>
+                <div class="col-sm-6">
+                    <div id="social_footer">
+                        <ul>
+                            <li><a href="#0"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#0"><i class="icon-google"></i></a></li>
+                            <li><a href="#0"><i class="icon-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>
