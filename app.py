@@ -123,6 +123,11 @@ def destination_details():
     # Fetch package details based on package_id
     
         return render_template('destination_details.html')
+@app.route('/hotels')
+def hotels():
+    # Fetch package details based on package_id
+    
+        return render_template('hotels.html')
 @app.route('/all_packages')
 def all_packages():
     # Fetch package details based on package_id

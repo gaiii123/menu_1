@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotels - TravelGuide</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+
+    <style>
+        #chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        #chat-button img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+        .btn-custom {
+background-color:#f26522 !important;
+border-color: #f26522 !important;
+color: white !important;
+}
+
+.btn-custom:hover {
+background-color: #f26522 !important;
+border-color: #f26522 !important;
+}
+.rating {
+        color: #ffd700;
+        margin-bottom: 10px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <header class="header" style="background-color: #3b4046;">
+        <div class="container-fluid" >
+            <div class="row">
+                
+                <div class="col--md-4 col-sm-3 col-xs-4">
+                    <div id="logo_home">
+                        <h1><a href="index.html" title="TravelGuide template">TravelGuide</a></h1>
+                        
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-9 col-xs-8 text-right">
+                    <a href="{{ url_for('hotels') }}" class="btn btn-primary mx-2" id="hotels">Hotels</a>
+                    <a href="{{ url_for('all_packages') }}" class="btn btn-success">Packages</a>
+                </div>
+            </div>
+            <!-- End row -->
+        </div>
+        <!-- End container -->
+    </header>
+    <div id="chat-button">
+        <a href="https://wa.me/94740840238" target="_blank">
+          <img src="../static/img/icon.png" alt="Chat with us" />
+        </a>
+      </div>
+    <div class="1" style="background-color: #23272b;">
+    <div class="container margin_60" >
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="color: #fff;">Lolu Village Resort</h1>
+                <p >Anuradhapura</p>
+                <div class="rating">
+                    <id="star5" name="rating" value="5"/>
+                    <label for="star5" style="color: #ffd700;">★</label>
+                    <id="star4" name="rating" value="4" />
+                    <label for="star4"style="color: #ffd700;">★</label>
+                    <id="star3" name="rating" value="3" />
+                    <label for="star3"style="color: #ffd700;">★</label>
+                    <id="star2" name="rating" value="2" />
+                    <label for="star2"style="color: #ffd700;">★</label>
+                    <id="star1" name="rating" value="1" />
+                    <label for="star1"style="color: #ffd700;">★</label>
+                </div>
+                <div class="row">
+                        
+                    <div class="col-md-4">
+                        <img src="/static/img/hotels/lolu villa 1.jpeg" class="img-responsive" >
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/static/img/hotels/lolu villa 5.jpeg" class="img-responsive" >
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/static/img/hotels/lolu villa 6.jpeg" class="img-responsive" >
+                    </div>
+                    
+                <br>   
+                </div>
+                <div class="row">
+                        
+                    <div class="col-md-4">
+                        <img src="/static/img/hotels/lolu villa 2.jpeg" class="img-responsive" >
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/static/img/hotels/lolu villa 3.jpeg" class="img-responsive" >
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/static/img/hotels/lolu villa 4.jpeg" class="img-responsive" >
+                    </div>
+                </div>
+                
+                <div class="col-md-12">
+                    <h2 style="color: #fff;">Welcome to Lolu Village Resort!</h2>
+                    <h5 style="color: #fff;">
+                        A serene haven nestled in the Anuradhapura district. We are delighted to confirm your booking and extend our warmest greetings for your upcoming stay with us.
+                       
+                        <br><br>Location:
+                       
+                        <br>Situated in the heart of the sacred city of Rajarata, Lolu Village Resort offers breathtaking views of the surrounding environment. Just 2km away from Thissawewa, our resort provides easy access to the main sites in Anuradhapura, including the Atamasthana, where Lord Buddha once visited.
+                        <br><br>Driver Accommodation:
+                       
+                        <br>For your convenience, we provide accommodations for drivers. Please feel free to inquire for further details or assistance in this regard.
+                       
+                        <br><br>Contact Us:
+                       
+                        <br>Should you require any further information or clarification regarding your booking, please do not hesitate to contact us. Our team is dedicated to ensuring that your stay with us is as comfortable and enjoyable as possible.
+                       
+                        <br>We look forward to welcoming you to Lolu Village Resort and trust that your time with us will be filled with relaxation, exploration, and cherished moments with your loved ones.
+                       
+                        <br><br>Warm regards
+                        <br>Lolu Village Resort
+                       
+                        <br>M: +94705013501 | T: +94252050429
+                        <br>E: loluvillageresort@gmail.com
+                       
+                       Thanthirimale Road, Lolugaswewa, Anuradhapura, Sri Lanka.</h5>
+                    
+                </div>
+                
+            
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="color: #fff;">Shiny Villa</h1>
+                <p >Unawatuna</p>
+                <div class="rating">
+                    <id="star5" name="rating" value="5"/>
+                    <label for="star5" style="color: #ffd700;">★</label>
+                    <id="star4" name="rating" value="4" />
+                    <label for="star4"style="color: #ffd700;">★</label>
+                    <id="star3" name="rating" value="3" />
+                    <label for="star3"style="color: #ffd700;">★</label>
+                    <id="star2" name="rating" value="2" />
+                    <label for="star2"style="color: #ffd700;">★</label>
+                    <id="star1" name="rating" value="1" />
+                    <label for="star1"style="color: #ffd700;">★</label>
+                </div>
+                <div class="row">
+                        
+                    <div class="col-md-4">
+                        <img src="/static/img/hotels/shiny villa 1.jpeg" class="img-responsive" >
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/static/img/hotels/shiny villa 4.jpeg" class="img-responsive" >
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/static/img/hotels/shiny villa 5.jpeg" class="img-responsive" >
+                    </div>
+                    
+                    
+                </div>
+                <br>
+                <div class="row">
+                        
+                    <div class="col-md-4">
+                        <img src="/static/img/hotels/shiny villa 3.jpeg" class="img-responsive" >
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/static/img/hotels/shiny villa 2.jpeg" class="img-responsive" >
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <h2 style="color: #fff;">Welcome to Shiny Villa</h2>
+                    <h5 style="color: #fff;">
+                        A Serene Beachfront Getaway
+                        <br>Nestled along the stunning coastline, Shiny Villa offers a breathtaking sea view with magical sunsets that paint the sky in vibrant hues. Located just steps away from the beach, this luxurious villa boasts easy access to golden sands and crystal-clear waters, perfect for a relaxing escape.
+                        <br>The villa features spacious two bedroom  with attached bathrooms, providing ultimate comfort and privacy. Its outdoor kitchen and cozy balcony create the perfect setting to unwind while enjoying the fresh ocean breeze. The private entrance ensures exclusive access, adding to the serene ambiance.
+                        <br>The living room, with its stylish sofa facing the beach, invites you to relax and soak in the mesmerizing views. Whether it’s a morning coffee with the sound of waves or an evening under the starlit sky, Shiny Villa promises an unforgettable coastal experience.
+                        <br>Shiny Villa is a beachfront accommodation located in Mihiripenna, Unawatuna, Sri Lanka. Situated just steps away from Mihiripenna Beach and a short walk from Dalawella Beach, it offers guests a serene coastal experience.  
+
+                        <br><br>facilities 
+
+                        <br><br>Two bedrooms 
+                        <br>Attached Bathrooms
+                        <br>Ac 
+                        <br>hot water 
+                        <br>outdoor kitchen 
+                        <br>refrigerator 
+                        <br>balcony 
+                        <br>beach access 
+                        <br>sea view 
+                        <br>private entrance 
+
+                        <br><br>contact details
+
+                        <br>Should you require any further information or clarification regarding your booking, please do not hesitate to contact us. Our team is dedicated to ensuring that your stay with us is as comfortable and enjoyable as possible.
+
+                        <br>We look forward to welcoming you to Shiny villa Mihiripenna  and trust that your time with us will be filled with relaxation, exploration, and cherished moments with your loved ones.
+
+                        <br>whatsapp - +94741584248
+                        <br>gmail - gaveeshadilki098@gmail.com</h5>
+                    
+                </div>
+                
+            
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="color: #fff;">Insy Villa</h1>
+                <p >Mihiripenna</p>
+                <div class="rating">
+                    <id="star5" name="rating" value="5"/>
+                    <label for="star5" style="color: #ffd700;">★</label>
+                    <id="star4" name="rating" value="4" />
+                    <label for="star4"style="color: #ffd700;">★</label>
+                    <id="star3" name="rating" value="3" />
+                    <label for="star3"style="color: #ffd700;">★</label>
+                    <id="star2" name="rating" value="2" />
+                    <label for="star2"style="color: #ffd700;">★</label>
+                    <id="star1" name="rating" value="1" />
+                    <label for="star1"style="color: #ffd700;">★</label>
+                </div>
+                <div class="row">
+                        
+                    <div class="col-md-4">
+                        <img src="/static/img/hotels/inzy 1.jpeg" class="img-responsive" >
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/static/img/hotels/inzy 2.jpeg" class="img-responsive" >
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/static/img/hotels/inzy 5.jpeg" class="img-responsive" >
+                    </div>
+                    
+                    
+                </div>
+                <br>
+                <div class="row">
+                        
+                    <div class="col-md-4">
+                        <img src="/static/img/hotels/inzy 3.jpeg" class="img-responsive" >
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/static/img/hotels/inzy 2.jpeg" class="img-responsive" >
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <h2 style="color: #fff;">Welcome to Shiny Villa</h2>
+                    <h5 style="color: #fff;">
+                        Villa for rent in mihiripenna:-
+                        <br>Long term or Short term
+                        <br>400m to the turtle beach 
+                        <br>3.5km to unawatuna beach and 8.5km to galle fort
+                        <br>Morden house nestled  in a calm and quite neighborhood 
+                        <br><br>Well equipped two kitchen
+                        <br>Fully furnished 
+                        <br>4 bedrooms with 4 bathrooms
+                        <br>Hot water 
+                        <br>Two Refrigerator and washing machine 
+                        <br>Fiber optic Wi-Fi connection (addictional charge )
+                        <br>Parking space 
+                        <br>Near by all the grocery 
+                        <br><br>For more information       
+                        <br>WhatsApp - +94789976084
+                        <br>gmail - ddcompany426@gmail.com
+                    </h5>
+                    
+                </div>
+                
+            
+            </div>
+        </div>
+        
+    </div>
+</div>
+    <footer class="footer1" style="background-color: #3b4046;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h2 style="color: rgb(250, 74, 104);">About Us</h2>
+                    <p style="color: #fff;">The most important info on your mobile during a visit<p><img src="{{ url_for('static', filename='img/logo_2.png') }}" alt="img" class="hidden-xs" width="170" height="30" data-retina="true">
+                    </p>
+                    <p style="color: #fff;">Phone: +94 74 084 0238</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6" style="color: #fff;">
+                    © TravelGuide 2025 - All Rights Reserved
+                </div>
+                <div class="col-sm-6">
+                    <div id="social_footer">
+                        <ul>
+                            <li><a href="#0"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#0"><i class="icon-google"></i></a></li>
+                            <li><a href="#0"><i class="icon-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

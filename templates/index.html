@@ -19,6 +19,8 @@
 
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,300" rel="stylesheet" type="text/css">
+    <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
     <!-- BASE CSS -->
     <link href="../static/css/animate.min.css" rel="stylesheet">
@@ -37,11 +39,10 @@
 
 <!-- Before closing body tag -->
 <script src="static/js/menu.js"></script>
-<!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 
 <!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 
 
     <!--[if lt IE 9]>
@@ -222,8 +223,9 @@
 
   
   </style>
-</head>
+  <!-- Swiper JS -->
 
+</head>
 <body>
 
     <!--[if lte IE 8]>
@@ -234,15 +236,20 @@
     <!-- Menu mask -->
 
     <!-- Header ================================================== -->
-    <header>
-        <div class="container-fluid">
+    <header class="header" style="background-color: #3b4046;">
+        <div class="container-fluid" >
             <div class="row">
+                
                 <div class="col--md-4 col-sm-3 col-xs-4">
                     <div id="logo_home">
                         <h1><a href="index.html" title="TravelGuide template">TravelGuide</a></h1>
+                        
                     </div>
                 </div>
-                
+                <div class="col-md-8 col-sm-9 col-xs-8 text-right">
+                    <a href="{{ url_for('hotels') }}" class="btn btn-primary mx-2" id="hotels">Hotels</a>
+                    <a href="{{ url_for('all_packages') }}" class="btn btn-success">Packages</a>
+                </div>
             </div>
             <!-- End row -->
         </div>
@@ -285,62 +292,10 @@
     
     <!-- End Header video -->
     <!-- End SubHeader ============================================ -->
-      <!--
-    <div class="container margin_60_30" >
-        <div class="main_title">
-            <h2><strong>Explore</strong> what's interesting</h2>
-            <span><em></em></span>
-        </div>
-
-        <div class="row box_cat">
-            <div class="col-md-3 col-sm-6">
-                <a href="">
-                    <span>24</span>
-                    <i class=" icon_set_1_icon-1"></i>
-                    <h3>Packages</h3>
-                    <p>
-                        description 1
-                    </p>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <a href="">
-                    <span>34</span>
-                    <i class="icon_set_1_icon-41"></i>
-                    <h3>Events</h3>
-                    <p>
-                        description 1
-                    </p>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <a href="florence-hotels-map-listing.html">
-                    <span>12</span>
-                    <i class="icon_set_1_icon-6"></i>
-                    <h3>Hotels </h3>
-                    <p>
-                        description 1
-                    </p>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <a href="">
-                    <span>43</span>
-                    <i class="icon_set_1_icon-58"></i>
-                    <h3>Destinations</h3>
-                    <p>
-                        description 1
-                    </p>
-                </a>
-            </div>
-        </div>
-        
-
-        
-       
-    </div>
+      
     
-    -->
+    
+    
     <div class="pattern_dots">
         <div class="container margin_60_45"style="background-color: #2b3947;width: 100%;;" >
             <div class="main_title" >
@@ -568,8 +523,48 @@
                 <!-- End row -->
             </div>
         </div>
-
-        
+        <div style="background-color:#363e47;">
+            
+        <div class="container margin_60_30" >
+            <div class="main_title">
+                <h2><strong>Hotels</strong></h2>
+                <span><em></em></span>
+            </div>
+    
+            <div class="row box_cat" >
+                <div class="col-md-3 col-sm-6">
+                    <a href="{{ url_for('hotels') }}">
+                        
+                        <img src="../static/img/hotels/logo 1.jpeg" width="200" height="200" alt="">
+                        <h3>Lolu VIlla Resort</h3>
+                        
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="{{ url_for('hotels') }}">
+                        
+                        <img src="../static/img/hotels/logo 2.jpeg" width="200" height="200" alt="">
+                        <h3>Shiny Villa</h3>
+                        
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="{{ url_for('hotels') }}">
+                        
+                        <img src="../static/img/hotels/logo 3.jpeg" width="200" height="200" alt="">
+                        <h3>Inzy villa</h3>
+                        
+                    </a>
+                </div>
+                
+            </div>
+            
+    
+            
+           
+        </div>  
+    </div>  
+    
               
         
     <div class="container1"style="background-color: #363e47;">
@@ -796,6 +791,11 @@ function addReviewToPage(review) {
     <script src="http://maps.googleapis.com/maps/api/js"></script>
     <script src="../static/js/map_home.js"></script>
     <script src="../static/js/infobox.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+
 
 </body>
 
