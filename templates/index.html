@@ -20,7 +20,7 @@
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,300" rel="stylesheet" type="text/css">
     <!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
     <!-- BASE CSS -->
     <link href="../static/css/animate.min.css" rel="stylesheet">
@@ -39,6 +39,11 @@
 
 <!-- Before closing body tag -->
 <script src="static/js/menu.js"></script>
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 
 <!-- Swiper JS -->
@@ -50,55 +55,41 @@
       <script src="js/respond.min.js"></script>
     <![endif]-->
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-    // First Slider Initialization
-    var swiper1 = new Swiper('.first-slider', {
-        loop: true,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        navigation: {
-            nextEl: '.first-slider-next',
-            prevEl: '.first-slider-prev',
-        },
-        pagination: {
-            el: '.first-slider-pagination',
-            clickable: true,
-        },
-        effect: 'fade',
-        speed: 1000,
-    });
-
-    // Second Slider Initialization
-    var swiper2 = new Swiper('.second-slider', {
-        loop: true,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        navigation: {
-            nextEl: '.second-slider-next',
-            prevEl: '.second-slider-prev',
-        },
-        pagination: {
-            el: '.second-slider-pagination',
-            clickable: true,
-        },
-        effect: 'fade',
-        speed: 1000,
-    });
-});
-
-</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Ensure Swiper is available before initializing
+            if (typeof Swiper === "undefined") {
+                console.error("Swiper.js not loaded");
+                return;
+            }
+        
+            var swiper1 = new Swiper(".first-slider", {
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: ".first-slider-next",
+                    prevEl: ".first-slider-prev",
+                },
+                pagination: {
+                    el: ".first-slider-pagination",
+                    clickable: true,
+                },
+                effect: "fade",
+                speed: 1000,
+            });
+        });
+        </script>
+        
       
       
 <style>
     /* Swiper Container */
-.swiper-container {
+.swiper  {
   width: 100%;
-  height: 90vh;
+  height: 100vh;
 
   overflow: hidden;
 }
@@ -165,7 +156,7 @@
   
   /* Media Query for Responsiveness */
   @media (max-width: 768px) {
-    .swiper-container {
+    .swiper {
       height: 100vh; /* Adjust height for smaller screens */
     }
  
@@ -196,6 +187,11 @@
       height: 50%; /* Further reduce width for very small screens */
       padding: 30px;
     }
+
+
+    .swiper {
+    height: 50vh; /* Smaller height on mobile */
+  }
   
     .text-overlay h1 {
       font-size: 1.5em; /* Adjust font size for very small screens */
@@ -263,21 +259,21 @@
           <img src="../static/img/icon.png" alt="Chat with us" />
         </a>
     </div>
-    <section class="swiper-container first-slider">
+    <section class="swiper first-slider">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="../static/img/photo/wild/8.jpeg" alt="Slide 1"></div>
-            <div class="swiper-slide"><img src="../static/img/photo/culture/2.jpeg" alt="Slide 2"></div>
-            <div class="swiper-slide"><img src="../static/img/photo/family/3.jpeg" alt="Slide 3"></div>
-            <div class="swiper-slide"><img src="../static/img/photo/hiking/6.jpeg" alt="Slide 4"></div>
-            <div class="swiper-slide"><img src="../static/img/photo/wild/1.jpeg" alt="Slide 5"></div>
-            <div class="swiper-slide"><img src="../static/img/photo/love/1.jpeg" alt="Slide 6"></div>
+            <div class="swiper-slide"><img src="../static/img/photo/hiking/1.jpeg" alt="Slide 1"></div>
+            <div class="swiper-slide"><img src="../static/img/photo/culture/4.jpeg" alt="Slide 2"></div>
+            <div class="swiper-slide"><img src="../static/img/photo/wild/8.jpeg" alt="Slide 3"></div>
+            <div class="swiper-slide"><img src="../static/img/photo/culture/2.jpeg" alt="Slide 4"></div>
+            <div class="swiper-slide"><img src="../static/img/photo/family/3.jpeg" alt="Slide 5"></div>
         </div>
         <div class="swiper-button-next first-slider-next"></div>
         <div class="swiper-button-prev first-slider-prev"></div>
         <div class="swiper-pagination first-slider-pagination"></div>
     </section>
+    
             <!-- Welcome Text Overlay -->
-        <div class="text-overlay" >
+        <div class="text-overlay" style="margin-top: 150px;" >
           <h2 style="color: white;">Welcome to</h2>
           <h1 style="color: #ffd700;">SRI LANKA</h1>
           <p style="color: white;">The most important info on your mobile during a visit</p>
