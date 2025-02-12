@@ -234,7 +234,7 @@ only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (min-device-pixel-ratio: 2) {
 #logo_home h1 a{
     background-image: url(../img/with\ DILA\ 2.png);
-	background-size: 50px 50px;
+	background-size: 30px 20px;
 }
 }
 .parallax_window_in {
