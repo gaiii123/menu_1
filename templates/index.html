@@ -242,13 +242,13 @@
                 
                 <div class="col--md-4 col-sm-3 col-xs-4">
                     <div id="logo_home">
-                        <h1><a href="index.html" title="TravelGuide template">TravelGuide</a></h1>
+                        <h1><a href="{{ url_for('home') }}" title="TravelGuide template">TravelGuide</a></h1>
                         
                     </div>
                 </div>
                 <div class="col-md-8 col-sm-9 col-xs-8 text-right">
                     <a href="{{ url_for('hotels') }}" class="btn btn-primary mx-2" id="hotels">Hotels</a>
-                    <a href="{{ url_for('all_packages') }}" class="btn btn-success">Packages</a>
+                    <a href="{{ url_for('all_packages') }}" class="btn btn-success" style="background-color: #f26522;">Packages</a>
                 </div>
             </div>
             <!-- End row -->
@@ -315,7 +315,7 @@
                         
                         <!-- End tools i-->
                         <div class="img_container_grid" id="image1">
-                            <a href="{{ url_for('package_details', package_id='family') }}">
+                            <a href="{{ url_for('family_package') }}">
                                 <img src="../static/img/photo/family/2.jpeg" width="800" height="480" class="img-responsive" alt="">
                                 <div class="short_info_grid">
                                     <small><strong></strong></small>
@@ -338,7 +338,7 @@
                         
                         <!-- End tools i-->
                         <div class="img_container_grid">
-                            <a href="{{ url_for('package_details', package_id='hiking') }}">
+                            <a href="{{ url_for('trekking_and_hiking_package') }}">
                                 <img src="../static/img/photo/hiking/5.jpeg" width="800" height="468" class="img-responsive" alt="">
                                 <div class="short_info_grid">
                                     <small><strong></strong></small>
@@ -366,7 +366,7 @@
                         
                         <!-- End tools i-->
                         <div class="img_container_grid">
-                            <a href="{{ url_for('package_details', package_id='wild') }}">
+                            <a href="{{ url_for('wildlife_package') }}">
                                 <img src="../static/img/photo/wild/11.jpeg" width="800" height="468" class="img-responsive" alt="">
                                 <div class="short_info_grid">
                                     <small><strong></strong></small>
@@ -389,7 +389,7 @@
                         
                         <!-- End tools i-->
                         <div class="img_container_grid">
-                            <a href="{{ url_for('package_details', package_id='culture') }}">
+                            <a href="{{ url_for('culture_package') }}">
                                 <img src="../static/img/photo/culture/7.jpeg" width="800" height="468" class="img-responsive" alt="">
                                 <div class="short_info_grid">
                                     <small><strong></strong></small>
@@ -412,7 +412,7 @@
                         
                         <!-- End tools i-->
                         <div class="img_container_grid">
-                            <a href="{{ url_for('package_details', package_id='beach') }}">
+                            <a href="{{ url_for('beach_package') }}">
                                 <img src="../static/img/photo/beach/1.jpeg" width="800" height="468" class="img-responsive" alt="">
                                 <div class="short_info_grid">
                                     <h3>BEACH</h3>

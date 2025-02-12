@@ -8,111 +8,118 @@
     <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <style>
-            #chat-button {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                z-index: 100;
-            }
-            #chat-button img {
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-                box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-            }
-            #toast {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    display: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    font-size: 16px;
-    z-index: 9999;
+
+    <style>
+        #chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        #chat-button img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+        #toast {
+position: fixed;
+bottom: 20px;
+right: 20px;
+background-color: #28a745;
+color: white;
+padding: 10px 20px;
+border-radius: 5px;
+display: none;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+font-size: 16px;
+z-index: 9999;
 }
 
-        </style>
+    </style>
 
 <script>
-    document.getElementById('subscribe-plan').addEventListener('submit', function(event) {
+document.getElementById('subscribe-plan').addEventListener('submit', function(event) {
 
-        event.preventDefault(); // Prevent page reload
-    
-        let formData = new FormData(this);
-    
-        fetch('/book_package', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                alert('Booking successful!'); 
-                window.location.href = '/';  // Redirect or show success message
-            } else {
-                alert('Booking failed: ' + data.message);
-            }
-        })
-        .catch(error => console.error('Error:', error));
-    });
+    event.preventDefault(); // Prevent page reload
 
-    // Function to show toast message
-    function showToast(message, type = 'success') {
-        const toast = document.getElementById('toast');
-        toast.style.display = 'block';
-        toast.innerText = message;
+    let formData = new FormData(this);
 
-        // Hide toast after 3 seconds
-        setTimeout(() => {
-            toast.style.display = 'none';
-        }, 3000);
-    }
+    fetch('/book_package', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            alert('Booking successful!'); 
+            window.location.href = '/';  // Redirect or show success message
+        } else {
+            alert('Booking failed: ' + data.message);
+        }
+    })
+    .catch(error => console.error('Error:', error));
+});
 
-    // Handle form submission and show toast message
-    document.getElementById('subscribe-plan').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent page reload
-    
-        let formData = new FormData(this);
-    
-        fetch('/book_package', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                // Show toast message
-                showToast('Booking submitted successfully!');
-                
-                // Clear the form fields
-                document.getElementById('subscribe-plan').reset();
+// Function to show toast message
+function showToast(message, type = 'success') {
+    const toast = document.getElementById('toast');
+    toast.style.display = 'block';
+    toast.innerText = message;
 
-                // Optionally, redirect or take other actions
-                // window.location.href = '/';  // Redirect to home page or another page
-            } else {
-                showToast('Booking failed: ' + data.message, 'error');
-            }
-        })
-        .catch(error => console.error('Error:', error));
-    });
-    </script>
-     
-    
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4 col-sm-3 col-xs-4">
-                    <div id="logo_home">
-                        <h1><a href="{{ url_for('index') }}" title="TravelGuide">TravelGuide</a></h1>
-                    </div>
+    // Hide toast after 3 seconds
+    setTimeout(() => {
+        toast.style.display = 'none';
+    }, 3000);
+}
+
+// Handle form submission and show toast message
+document.getElementById('subscribe-plan').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent page reload
+
+    let formData = new FormData(this);
+
+    fetch('/book_package', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            // Show toast message
+            showToast('Booking submitted successfully!');
+            
+            // Clear the form fields
+            document.getElementById('subscribe-plan').reset();
+
+            // Optionally, redirect or take other actions
+            // window.location.href = '/';  // Redirect to home page or another page
+        } else {
+            showToast('Booking failed: ' + data.message, 'error');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+});
+</script>
+<header class="header" style="background-color: #3b4046;">
+    <div class="container-fluid" >
+        <div class="row">
+            
+            <div class="col--md-4 col-sm-3 col-xs-4">
+                <div id="logo_home">
+                    <h1><a href="{{ url_for('home') }}" title="TravelGuide template">TravelGuide</a></h1>
+                    
                 </div>
             </div>
+            <div class="col-md-8 col-sm-9 col-xs-8 text-right">
+                <a href="{{ url_for('hotels') }}" class="btn btn-primary mx-2" id="hotels">Hotels</a>
+                <a href="{{ url_for('all_packages') }}" class="btn btn-success" style="background-color: #f26522;">Packages</a>
+            </div>
         </div>
-    </header>
+        <!-- End row -->
+    </div>
+    <!-- End container -->
+</header>
     <div id="chat-button">
         <a href="https://wa.me/94740840238" target="_blank">
           <img src="../static/img/icon.png" alt="Chat with us" />

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honeymoon Package - TravelGuide</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+
+    <style>
+        #chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        #chat-button img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+        .btn-custom {
+background-color:#f26522 !important;
+border-color: #f26522 !important;
+color: white !important;
+}
+
+.btn-custom:hover {
+background-color: #f26522 !important;
+border-color: #f26522 !important;
+}
+    </style>
+    <header class="header" style="background-color: #3b4046;">
+        <div class="container-fluid" >
+            <div class="row">
+                
+                <div class="col--md-4 col-sm-3 col-xs-4">
+                    <div id="logo_home">
+                        <h1><a href="{{ url_for('home') }}" title="TravelGuide template">TravelGuide</a></h1>
+                        
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-9 col-xs-8 text-right">
+                    <a href="{{ url_for('hotels') }}" class="btn btn-primary mx-2" id="hotels">Hotels</a>
+                    <a href="{{ url_for('all_packages') }}" class="btn btn-success" style="background-color: #f26522;">Packages</a>
+                </div>
+            </div>
+            <!-- End row -->
+        </div>
+        <!-- End container -->
+    </header>
+    <div id="chat-button">
+        <a href="https://wa.me/94740840238" target="_blank">
+          <img src="../static/img/icon.png" alt="Chat with us" />
+        </a>
+    
+    </div>
+
+    <div class="1" style="background-color: #23272b;">
+        <div class="container margin_60" >
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 style="color: #fff;">Honeymoon</h1>
+                    
+                    <div class="rating">
+                        <id="star5" name="rating" value="5"/>
+                        <label for="star5" style="color: #ffd700;">★</label>
+                        <id="star4" name="rating" value="4" />
+                        <label for="star4"style="color: #ffd700;">★</label>
+                        <id="star3" name="rating" value="3" />
+                        <label for="star3"style="color: #ffd700;">★</label>
+                        <id="star2" name="rating" value="2" />
+                        <label for="star2"style="color: #ffd700;">★</label>
+                        <id="star1" name="rating" value="1" />
+                        <label for="star1"style="color: #ffd700;">★</label>
+                    </div>
+                    <div class="row">
+                            
+                        <div class="col-md-4">
+                            <img src="/static/img/photo/love/1.jpeg" class="img-responsive" >
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="col-md-12">
+                        
+                        <h5 style="color: #fff;">
+                            <br> 9 Days
+                            <br> Colombo
+                            <br> Galle    
+                            <br> Ella
+                            <br> NuwaraEliya
+                            <br> Colombo
+                        </h5>
+                    </div>
+                    <a href="{{ url_for('book_package') }}" class="btn btn-lg btn-custom" style="margin-left: 50%;">BOOK NOW</a>
+            
+                    
+                
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 style="color: #fff;">Honeymoon</h1>
+                    
+                    <div class="rating">
+                        <id="star5" name="rating" value="5"/>
+                        <label for="star5" style="color: #ffd700;">★</label>
+                        <id="star4" name="rating" value="4" />
+                        <label for="star4"style="color: #ffd700;">★</label>
+                        <id="star3" name="rating" value="3" />
+                        <label for="star3"style="color: #ffd700;">★</label>
+                        <id="star2" name="rating" value="2" />
+                        <label for="star2"style="color: #ffd700;">★</label>
+                        <id="star1" name="rating" value="1" />
+                        <label for="star1"style="color: #ffd700;">★</label>
+                    </div>
+                    <div class="row">
+                            
+                        <div class="col-md-4">
+                            <img src="/static/img/photo/love/2.jpeg" class="img-responsive" >
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="col-md-12">
+                        
+                        <h5 style="color: #fff;">
+                            <br> 9 Days
+                            <br> Colombo
+                            <br> Galle    
+                            <br> Yala
+                            <br> Ella
+                            <br> NuwaraEliya
+                            <br> Kandy
+                            <br> Colombo
+                        </h5>
+                    </div>
+                    <a href="{{ url_for('book_package') }}" class="btn btn-lg btn-custom" style="margin-left: 50%;">BOOK NOW</a>
+            
+                
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 style="color: #fff;">Honeymoon</h1>
+                    
+                    <div class="rating">
+                        <id="star5" name="rating" value="5"/>
+                        <label for="star5" style="color: #ffd700;">★</label>
+                        <id="star4" name="rating" value="4" />
+                        <label for="star4"style="color: #ffd700;">★</label>
+                        <id="star3" name="rating" value="3" />
+                        <label for="star3"style="color: #ffd700;">★</label>
+                        <id="star2" name="rating" value="2" />
+                        <label for="star2"style="color: #ffd700;">★</label>
+                        <id="star1" name="rating" value="1" />
+                        <label for="star1"style="color: #ffd700;">★</label>
+                    </div>
+                    <div class="row">
+                            
+                        <div class="col-md-4">
+                            <img src="/static/img/photo/love/3.jpeg" class="img-responsive" >
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="col-md-12">
+                        
+                        <h5 style="color: #fff;">
+                            <br> 12 Days
+                            <br> Colombo
+                            <br> Galle    
+                            <br> Yala
+                            <br> Ella
+                            <br> NuwaraEliya
+                            <br> Sigiriya
+                            <br> Polonnaruwa
+                            <br> Anuradhapura
+                            <br> Wilpattu
+                            <br> Colombo
+                        </h5>
+                    </div>
+                    <a href="{{ url_for('book_package') }}" class="btn btn-lg btn-custom" style="margin-left: 50%;">BOOK NOW</a>
+            
+                
+                </div>
+            </div>
+            
+            
+            
+        </div>
+    </div>
+    
+
+        
+    </div>
+</div>
+    <footer class="footer1" style="background-color: #3b4046;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h2 style="color: rgb(250, 74, 104);">About Us</h2>
+                    <p style="color: #fff;">The most important info on your mobile during a visit<p><img src="{{ url_for('static', filename='img/logo_2.png') }}" alt="img" class="hidden-xs" width="170" height="30" data-retina="true">
+                    </p>
+                    <p style="color: #fff;">Phone: +94 74 084 0238</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6" style="color: #fff;">
+                    © TravelGuide 2025 - All Rights Reserved
+                </div>
+                <div class="col-sm-6">
+                    <div id="social_footer">
+                        <ul>
+                            <li><a href="#0"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#0"><i class="icon-google"></i></a></li>
+                            <li><a href="#0"><i class="icon-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

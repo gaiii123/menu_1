@@ -8,46 +8,55 @@
     <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <style>
-            #chat-button {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                z-index: 100;
-            }
-            #chat-button img {
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-                box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-            }
-            .btn-custom {
-    background-color:#f26522 !important;
-    border-color: #f26522 !important;
-    color: white !important;
+
+    <style>
+        #chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        #chat-button img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+        .btn-custom {
+background-color:#f26522 !important;
+border-color: #f26522 !important;
+color: white !important;
 }
 
 .btn-custom:hover {
-    background-color: #f26522 !important;
-    border-color: #f26522 !important;
+background-color: #f26522 !important;
+border-color: #f26522 !important;
 }
 .rating {
-            color: #ffd700;
-            margin-bottom: 10px;
-        }
+        color: #ffd700;
+        margin-bottom: 10px;
+    }
 
 
-        </style>
-        <div class="container-fluid">
+    </style>
+    <header class="header" style="background-color: #3b4046;">
+        <div class="container-fluid" >
             <div class="row">
-                <div class="col-md-4 col-sm-3 col-xs-4">
+                
+                <div class="col--md-4 col-sm-3 col-xs-4">
                     <div id="logo_home">
-                        <h1><a href="{{ url_for('index') }}" title="TravelGuide">TravelGuide</a></h1>
+                        <h1><a href="{{ url_for('home') }}" title="TravelGuide template">TravelGuide</a></h1>
+                        
                     </div>
                 </div>
+                <div class="col-md-8 col-sm-9 col-xs-8 text-right">
+                    <a href="{{ url_for('hotels') }}" class="btn btn-primary mx-2" id="hotels">Hotels</a>
+                    <a href="{{ url_for('all_packages') }}" class="btn btn-success" style="background-color: #f26522;">Packages</a>
+                </div>
             </div>
+            <!-- End row -->
         </div>
+        <!-- End container -->
     </header>
     <div id="chat-button">
         <a href="https://wa.me/94740840238" target="_blank">

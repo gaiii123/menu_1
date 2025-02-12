@@ -45,13 +45,13 @@ border-color: #f26522 !important;
                 
                 <div class="col--md-4 col-sm-3 col-xs-4">
                     <div id="logo_home">
-                        <h1><a href="index.html" title="TravelGuide template">TravelGuide</a></h1>
+                        <h1><a href="{{ url_for('home') }}" title="TravelGuide template">TravelGuide</a></h1>
                         
                     </div>
                 </div>
                 <div class="col-md-8 col-sm-9 col-xs-8 text-right">
                     <a href="{{ url_for('hotels') }}" class="btn btn-primary mx-2" id="hotels">Hotels</a>
-                    <a href="{{ url_for('all_packages') }}" class="btn btn-success">Packages</a>
+                    <a href="{{ url_for('all_packages') }}" class="btn btn-success" style="background-color: #f26522;">Packages</a>
                 </div>
             </div>
             <!-- End row -->

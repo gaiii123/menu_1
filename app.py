@@ -47,77 +47,17 @@ socketio = SocketIO(app, cors_allowed_origins="*")  # Enable real-time support
 db = client[dbname]
 reviews_collection = db["reviews"]
 
-packages = {
-    "family": {
-        "title": "FAMILY PACKAGE",
-        "description": "A family that travels together stays together.",
-        "images": [
-            "../static/img/photo/family/2.jpeg",
-            "../static/img/photo/family/3.jpeg",
-            "../static/img/photo/family/4.jpeg"
-        ]
-    },
-    "hiking": {
-        "title": "TREKKING AND HIKING",
-        "description": "Life is a daring adventure or nothing.",
-        "images": [
-            "../static/img/photo/hiking/5.jpeg",
-            "../static/img/photo/hiking/6.jpeg",
-            "../static/img/photo/hiking/4.jpeg"
-        ]
-    },
-    "love": {
-        "title": "HONEYMOON",
-        "description": "Lets travel together and get lost in this beautiful island",
-        "images": [
-            "../static/img/photo/love/1.jpeg",
-            "../static/img/photo/love/2.jpeg",
-            "../static/img/photo/love/3.jpeg"
-        ]
-    },
-    "wild": {
-        "title": "WILD LIFE",
-        "description": "The only man i envy is the man who has not yet been to the wild",
-        "images": [
-            "../static/img/photo/wild/1.jpeg",
-            "../static/img/photo/wild/2.jpeg",
-            "../static/img/photo/wild/3.jpeg"
-        ]
-},"culture": {
-        "title": "CULTURE",
-        "description": "You have to taste a culture to understand it",
-        "images": [
-            "../static/img/photo/culture/1.jpeg",
-            "../static/img/photo/culture/2.jpeg",
-            "../static/img/photo/culture/3.jpeg"
-        ]
-},
-"beach": {
-        "title": "BEACH",
-        "description": "Sky above, sand below, Peace within",
-        "images": [
-            "../static/img/photo/beach/1.jpeg",
-            "../static/img/photo/beach/2.jpeg",
-            "../static/img/photo/beach/3.jpeg"
-        ]
-},
-}
-
 
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/package/<package_id>')
-def package_details(package_id):
+@app.route('/home')
+def home():
     # Fetch package details based on package_id
-    package = packages.get(package_id)
-    if package:
-        return render_template('package_details.html', package=package)
-    else:
-        return "Package not found", 404
     
+        return render_template('index.html')
 @app.route('/destination_details')
 def destination_details():
     # Fetch package details based on package_id
@@ -133,6 +73,37 @@ def all_packages():
     # Fetch package details based on package_id
     
         return render_template('all_packages.html')
+@app.route('/family_package')
+def family_package():
+    # Fetch package details based on package_id
+    
+        return render_template('family_package.html')
+@app.route('/trekking_and_hiking_package')
+def trekking_and_hiking_package():
+    # Fetch package details based on package_id
+    
+        return render_template('trekking_and_hiking_package.html')
+@app.route('/wildlife_package')
+def wildlife_package():
+    # Fetch package details based on package_id
+    
+        return render_template('wildlife_package.html')
+@app.route('/Honeymoon_package')
+def Honeymoon_package():
+    # Fetch package details based on package_id
+    
+        return render_template('Honeymoon_package.html')
+@app.route('/beach_package')
+def beach_package():
+    # Fetch package details based on package_id
+    
+        return render_template('beach_package.html')
+@app.route('/culture_package')
+def culture_package():
+    # Fetch package details based on package_id
+    
+        return render_template('culture_package.html')
+
 @app.route('/book_package', methods=['GET', 'POST'])
 def book_package():
     if request.method == 'POST':
