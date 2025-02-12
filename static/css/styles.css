@@ -232,10 +232,10 @@ header.sticky, header#plain{
 only screen and (-o-min-device-pixel-ratio: 2/1),
 only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (min-device-pixel-ratio: 2) {
-#logo_home h1 a{
-    background-image: url(../img/with\ DILA\ 2.png);
-	background-size: 30px 20px;
-}
+    #logo_home h1 a {
+        background-image: url(../img/with\ DILA\ 2.png);
+        background-size: 60px 40px;
+    }
 }
 .parallax_window_in {
     height: 420px;
@@ -3198,9 +3198,19 @@ position:absolute; right:2%;width:50px; height:50px;}
 	
 	/* Structure */
 	header{padding:10px 0 8px 0;}
-	#logo_home h1 { margin:5px 0 0 0;}
-	#logo_home h1 a{background-size: 150px auto;}
-	a#logo img{width:140px; height:auto; margin:5px 0;}
+	#logo_home h1 {
+        margin: 5px 0 0 0;
+    }
+    #logo_home h1 a {
+        width: 100px; 
+        height: 60px;
+        background-size: 100px 60px;
+    }
+    a#logo img {
+        width: 100px;
+        height: auto;
+        margin: 5px 0;
+    }
 	footer{padding:15px 0;}
 	#social_footer{float:none;}
 	#social_footer ul{margin:15px 0 0 0;}	
@@ -3296,6 +3306,20 @@ position:absolute; right:2%;width:50px; height:50px;}
 	#sub_content_in{padding:45px 20px 0 20px;}
 	#sub_content_in h1{font-size:26px;}
 	#sub_content_in p{font-size:16px;}
+
+	#logo_home h1 {
+        margin: 5px 0 0 0;
+    }
+    #logo_home h1 a {
+        width: 80px;
+        height: 50px;
+        background-size: 80px 50px;
+    }
+    a#logo img {
+        width: 80px;
+        height: auto;
+        margin: 5px 0;
+    }
 	
 	#hero_video #sub_content_in h1 {font-size:16px;}
 	#hero_video #sub_content_in p {font-size:12px;}
