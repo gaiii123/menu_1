@@ -183,14 +183,14 @@
   @media (max-width: 480px) {
     .text-overlay {
       max-width: 90%;
-      margin-top: 100px;
+      margin-top:80px;
       height: 50%; /* Further reduce width for very small screens */
-      padding: 30px;
+      padding: 20px;
     }
 
 
     .swiper {
-    height: 50vh; /* Smaller height on mobile */
+    height: 90vh; /* Smaller height on mobile */
   }
   
     .text-overlay h1 {
@@ -423,9 +423,9 @@
                     <!-- End img_wrapper_grid -->
                 </div>
             </div>
-            <br>
-            <p href="{{ url_for('all_packages') }}" class="btn btn-lg btn-custom" style="margin-left: 50%;">All packages</p>
-            <!-- End row -->
+                
+            <a href="{{ url_for('all_packages') }}" class="btn btn-lg btn-custom" style="margin-left: 50%;">All packages</a>
+            <br><br>
         </div>
     </div>
         <!-- End container -->
@@ -516,9 +516,9 @@
                     </div>
                     
                 </div>
-                <br>
-                <p href="{{ url_for('destination_details') }}" class="btn btn-lg btn-custom" style="margin-left: 50%;">All Destinations</p>
-                <!-- End row -->
+                
+                <a href="{{ url_for('destination_details') }}" class="btn btn-lg btn-custom" style="margin-left: 50%;">All Destinations</a>
+                <br><br>
             </div>
         </div>
         <div style="background-color:#363e47;">

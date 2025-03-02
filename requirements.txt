@@ -1,6 +1,6 @@
-Flask>=2.0
-Flask-SocketIO>=5.1
-pymongo>=3.11
-python-dotenv>=0.19.2
-eventlet>=0.33.0   # (if using eventlet with Flask-SocketIO for async support)
+Flask>=3.1.0
+Flask-SocketIO>=5.5.1
+pymongo>=4.5.0
+python-dotenv>=1.0.0
+eventlet>=0.34.0  # (if using eventlet with Flask-SocketIO for async support)
 Flask-Mail>=0.9.1
