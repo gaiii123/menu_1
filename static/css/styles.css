@@ -60,15 +60,15 @@ label {color:#555; font-weight:500;}
 .main_title {text-align:center; margin:0 auto 60px; width:70%; }
 .main_title h2, .main_title h3 {font-weight:300; color:#222; font-size:38px; margin:0 0 10px 0; padding:0;}
 .main_title p, .main_title p {font-size:18px; font-weight:300; opacity:1;}
-.main_title h2 strong, .main_title h3 strong {color:#ed145b;font-weight:300;}
+.main_title h2 strong, .main_title h3 strong {color:#f26522;font-weight:300;}
 
 .main_title span {width:120px; height:2px; background-color:#e1e1e1; display:block; margin:auto;}
-.main_title span em {width:60px; height:2px; background-color:#ed145b; display:block; margin:auto;}
+.main_title span em {width:60px; height:2px; background-color:#f26522; display:block; margin:auto;}
 
 .main_title_left h2, .main_title_left h3{font-weight:300; color:#222; font-size:38px; margin:30px 0 10px 0; padding:0;}
 .main_title_left p {font-size:22px; font-weight:300; opacity:1;}
 .main_title_left span {width:120px; height:2px; background-color:#e1e1e1; display:block; margin-bottom:30px;}
-.main_title_left span em {width:60px; height:2px; background-color:#ed145b; display:block;}
+.main_title_left span em {width:60px; height:2px; background-color:#f26522; display:block;}
 
 h3.second_title{margin:0 0 30px 0; color:#999;}
 
@@ -76,7 +76,7 @@ p{ margin-bottom:25px;}
 
 /*General links color*/
 a {color:#1aa79b;text-decoration: none;-webkit-transition: all 0.2s ease;transition: all 0.2s ease; outline:none;}
-a:hover,a:focus {color: #ed145b;text-decoration: none; outline:none;}
+a:hover,a:focus {color: #f26522;text-decoration: none; outline:none;}
 
 /*-------- 1.2 Buttons --------*/
 a.button, .button{
@@ -101,7 +101,7 @@ a.button.small, .button.small{
 }
 a.button:hover,.button:hover{
 	color:#fff;
-	background-color:#ed145b;
+	background-color:#f26522;
 }
 a.button_outline, .button_outline{
 	padding:8px 30px;
@@ -611,7 +611,7 @@ footer .styled-select {
 	font-size:16px;
 }
 .features #feat_1 h3, .features #feat_2 h3, .features #feat_3 h3{
-	color:#ed145b;
+	color:#f26522;;
 	font-weight:300;
 }
 .features #feat_1{
@@ -760,7 +760,7 @@ video {
 	font-size:42px;
 }
 .box_cat a:hover i{
-	color:#ed145b;
+	color:#f26522;;
 }
 .box_cat a h3{
 	font-size:17px;
@@ -1112,7 +1112,7 @@ a#filters_col_bt:before{
 	font-family: "ElegantIcons";
 }
 #filter_tools ul li a#grid_icon:hover:before, #filter_tools ul li a#list_icon:hover:before, #filter_tools ul li a#map_icon:hover:before{
-	color:#ed145b;
+	color:#f26522;;
 }
 #filter_tools ul li a#grid_icon:before{
   	content: "\e025";
@@ -1508,7 +1508,7 @@ span.infobox_rate{
 	display:inline-block;
 	margin:-45px 0 0 -20px;
 	float:left;
-	background-color:#ec008c;
+	background-color:#f26522;;
 	padding:5px 8px;
 	font-weight:500;
 	text-align:left;
@@ -1683,10 +1683,10 @@ ul#tools_2 li a i, ul#tools_2 li form i{
 }
 ul#tools_2 li a:hover{
 	padding-left:60px;
-	color:#ec008c;
+	color:#f26522;;
 }
 ul#tools_2 li form:hover{
-	color:#ec008c;
+	color:#f26522;
 	padding-left:5px;
 }
 ul#tools_2 li form button{
@@ -1931,13 +1931,13 @@ ul#policies li i{
 a.download {
 	float:right;
 	margin-top:-35px;
-	 color:#eb1d5d;
+	 color:#f26522;
 	 display:inline-block;
 }
 a.download:before{
   font-family: "ElegantIcons";
   content: "\e004";
-  color:#eb1d5d;
+  color:#f26522;
   font-size:22px;
   margin-right:10px;
   position:relative;
@@ -2041,7 +2041,7 @@ ul#cat_nav li a:hover, ul#cat_nav li a.active{
 	line-height:1.6 !important;
 }
 .panel-title a .indicator{
-	color:#ec008c;
+	color:#f26522;
 }
 .panel-title a:hover .indicator{
 	color:#333;
@@ -2333,7 +2333,7 @@ ul.contacts_info li{
 	margin-bottom:10px;
 }
 .form_title h3 strong{
-	background-color:#ed145b;
+	background-color:#f26522;
 	text-align:center;
 	width:40px;
 	height:40px;
@@ -2734,7 +2734,7 @@ ul.list_ok li:before {
 }
 /*-------- 4.9 Input form style --------*/
 .loader { margin-left:5px; position:absolute;}
-.error_message { color:#F33; font-weight:600; margin-bottom:4px;}
+.error_message { color:#f26522;; font-weight:600; margin-bottom:4px;}
 .form-control {
   color: #333;
   height:40px;
@@ -3299,7 +3299,7 @@ position:absolute; right:2%;width:50px; height:50px;}
 @media only screen and (max-width : 480px) {
 	
 	/* Home */
-	#search_bar{position:static; background:rgba(237,20,91,1);}
+	#search_bar{position:static; background:#f26522;}
 	.pattern_dots_gray.fix_mobile, .pattern_dots.fix_mobile, .fix_mobile{margin-top:60px;}
 	h3.slide_typo, .slide_typo_2 {display:none;}
 	
