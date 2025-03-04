@@ -207,6 +207,35 @@
       border-radius: 5px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
+
+    /* Scrollable Container for Reviews */
+#reviews_container {
+    max-height: 400px; /* Set a fixed height for the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-right: 10px; /* Add some padding to avoid content touching the scrollbar */
+}
+
+/* Custom Scrollbar Styling (Optional) */
+#reviews_container::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+#reviews_container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the track */
+    border-radius: 4px;
+}
+
+#reviews_container::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar */
+    border-radius: 4px;
+}
+
+#reviews_container::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scrollbar on hover */
+}
+#reviews_container {
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+}
     /* About Mantra Travel Section */
 .about-mantra-section {
     background-color: #363e47;
@@ -690,7 +719,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="col-md-6">
                     <div class="box_style_2" id="reviews_container">
                         <h3>Recent Reviews</h3>
-                        <!-- Reviews will be dynamically added here -->
+                        <div id="reviews_container" style="max-height: 400px; overflow-y: auto; padding-right: 10px;">
+                            {% for review in reviews %}
+                                <div class="review_item">
+                                    <div class="rating">
+                                        {% for i in range(review.rating) %}★{% endfor %}
+                                    </div>
+                                    <h4>{{ review.name }}</h4>
+                                    <p>{{ review.comment }}</p>
+                                    <small>Posted on: {{ review.created_at }}</small>
+                                    <hr>
+                                </div>
+                            {% endfor %}
                     </div>
                 </div>
             </div>

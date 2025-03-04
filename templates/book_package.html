@@ -53,7 +53,9 @@ document.getElementById('subscribe-plan').addEventListener('submit', function(ev
     .then(data => {
         if (data.status === 'success') {
             alert('Booking successful!'); 
+            formData.reset(); // Clear the form fields
             window.location.href = '/';  // Redirect or show success message
+            formData.reset(); // Clear the form fields
         } else {
             alert('Booking failed: ' + data.message);
         }
@@ -88,6 +90,7 @@ document.getElementById('subscribe-plan').addEventListener('submit', function(ev
         if (data.status === 'success') {
             // Show toast message
             showToast('Booking submitted successfully!');
+            formData.reset();
             
             // Clear the form fields
             document.getElementById('subscribe-plan').reset();

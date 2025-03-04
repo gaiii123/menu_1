@@ -119,7 +119,7 @@ def book_package():
         send_booking_email(fullname, country, email, phone, plan)
 
         # Return JSON response indicating success
-        return jsonify({'status': 'success', 'message': 'Booking submitted successfully!'})
+        return jsonify({'status': 'success', 'message': 'Booking submitted successfully! We are reviewing your request and will get back to you soon.'})
 
     return render_template('book_package.html')
 
