@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Manthra Travel with DILA - Sri Lanka Tourism">
     <meta name="author" content="Ansonika">
-    <title>Manthra Travel with DILA</title>
+    <title>{{ settings.site_name }}</title>
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -267,6 +267,28 @@
 .about-mantra-image img:hover {
     transform: scale(1.05);
 }
+
+/* Enhanced Login Button */
+.btn-login {
+    background-color: #707ce6 !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 5px !important;
+    font-weight: bold !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+}
+
+.btn-login:hover {
+    background-color: #5a67d8 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+}
+
+.btn-login:active {
+    transform: translateY(0) !important;
+}
 </style>
 
 <script>
@@ -401,14 +423,13 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="row">
                 <div class="col--md-4 col-sm-3 col-xs-4">
                     <div id="logo_home">
-                        <h1><a href="/" title="Manthra Travel">Manthra Travel</a></h1>
+                        <h1><a href="/" title="Manthra Travel">{{ settings.site_name }}</a></h1>
                     </div>
                 </div>
                 <div class="col-md-8 col-sm-9 col-xs-8 text-right">
                     <a href="/hotels" class="btn btn-primary mx-2" id="hotels" style="background-color: #0EACA1; margin-top: 25px; margin-right: 10px;">Hotels</a>
                     <a href="/all_packages" class="btn btn-success" style="background-color: #f26522; margin-top: 25px;">Packages</a>
-                </div>
-            </div>
+                    <a href="/login" class="btn btn-login" style="background-color: #707ce6; margin-top: 25px; margin-right: 10px; text-decoration-color: #000000;">Login</a></div>
         </div>
     </header>
 
@@ -446,8 +467,9 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="pattern_dots">
         <div class="container margin_60_45" style="background-color: #2b3947; width: 100%;">
             <div class="main_title">
-                <h2 style="color: white;"><strong>Most Viewed</strong> in ManthraTravel</h2>
+                <h2 style="color: white;"><strong>Most Viewed</strong> in {{ settings.site_name }}</h2>
                 <h5 style="color: white;">Plan Your Dream Vacation in Sri Lanka</h5>
+                
                 <span><em></em></span>
             </div>
 
@@ -553,9 +575,9 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="row">
             <div class="col-md-6">
                 <div class="about-mantra-content">
-                    <h2 style="color: #f26522;">About Mantra Travel</h2>
+                    <h2 style="color: #f26522;">About {{ settings.site_name }}</h2>
                     <p style="color: #ffffff; font-size: 1.2em; line-height: 1.8;">
-                        Mantra Travel with DILA is your ultimate guide to exploring the enchanting island of Sri Lanka. We specialize in creating unforgettable travel experiences that cater to all types of travelers, whether you're seeking adventure, relaxation, or cultural immersion.
+                        {{ settings.site_name }} is your ultimate guide to exploring the enchanting island of Sri Lanka. We specialize in creating unforgettable travel experiences that cater to all types of travelers, whether you're seeking adventure, relaxation, or cultural immersion.
                     </p>
                     <p style="color: #ffffff; font-size: 1.2em; line-height: 1.8;">
                         Our mission is to provide you with the most seamless and enjoyable travel experience, offering personalized itineraries, top-notch accommodations, and expert guides who are passionate about sharing the beauty and heritage of Sri Lanka.
@@ -750,7 +772,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <hr>
             <div class="row">
                 <div class="col-sm-6" style="color: #fff;">
-                    © Manthra Travel with DILA 2025 - All Rights Reserved
+                    © {{ settings.site_name }} 2025 - All Rights Reserved
                 </div>
                 <div class="col-sm-6">
                     <div id="social_footer">

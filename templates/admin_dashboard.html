@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ settings.site_name }} - Admin Dashboard</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #f26522;
+            --secondary-color: #363e47;
+            --accent-color: #0EACA1;
+            --light-bg: #f8f9fa;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .sidebar {
+            background-color: var(--secondary-color);
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .sidebar-header {
+            padding: 20px;
+            background-color: #2b3947;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .sidebar-menu {
+            padding: 10px 0;
+        }
+        
+        .sidebar-menu a {
+            color: #ddd;
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+        
+        .sidebar-menu a:hover {
+            color: white;
+            background-color: rgba(255,255,255,0.1);
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .sidebar-menu a.active {
+            color: white;
+            background-color: rgba(255,255,255,0.1);
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .sidebar-menu i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .main-content {
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .card {
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0 !important;
+            padding: 15px 20px;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .welcome-message {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .stat-card h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .stat-card p {
+            color: #6c757d;
+            margin-bottom: 0;
+        }
+        
+        .badge {
+            padding: 5px 10px;
+            font-weight: 500;
+            font-size: 0.8rem;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 991.98px) {
+            .sidebar {
+                min-height: auto;
+                width: 100%;
+                position: relative;
+            }
+            
+            .main-content {
+                padding: 15px;
+            }
+            
+            .card-header {
+                padding: 12px 15px;
+            }
+            
+            .card-body {
+                padding: 15px;
+            }
+            
+            .stat-card h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .welcome-message {
+                padding: 20px;
+            }
+            
+            .stat-card h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animated-card {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-2 col-md-3 sidebar p-0">
+                <div class="sidebar-header">
+                    <h4 class="mb-0">{{ settings.site_name }}</h4>
+                    <p class="mb-0 text-muted">Admin Dashboard</p>
+                </div>
+                
+                <div class="sidebar-menu">
+                    <a href="/admin/dashboard" class="active">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                    <a href="/admin/bookings">
+                        <i class="fas fa-calendar-alt"></i> Bookings
+                    </a>
+                    <a href="/admin/reviews">
+                        <i class="fas fa-comments"></i> Reviews
+                    </a>
+                    <a href="/logout">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="col-lg-10 col-md-9 main-content">
+                <div class="welcome-message animated-card">
+                    <h3>Welcome back, Admin!</h3>
+                    <p class="mb-0">Here's what's happening with your business today.</p>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card stat-card animated-card delay-1">
+                            <div class="card-header">
+                                <i class="fas fa-calendar mr-2"></i> Total Bookings
+                            </div>
+                            <div class="card-body text-center">
+                                <h2>{{ total_bookings }}</h2>
+                                <p>All time bookings</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card stat-card animated-card delay-2">
+                            <div class="card-header">
+                                <i class="fas fa-star mr-2"></i> Customer Reviews
+                            </div>
+                            <div class="card-body text-center">
+                                <h2>{{ total_reviews }}</h2>
+                                <p>All time reviews</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Settings Form -->
+                <div class="card mb-4 animated-card">
+                    <div class="card-header">
+                        <i class="fas fa-cog mr-2"></i> Site Settings
+                    </div>
+                    <div class="card-body">
+                        <form action="/admin/update_settings" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label>Site Name</label>
+                                <input type="text" class="form-control" name="site_name" value="{{ settings.site_name }}" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save mr-2"></i> Update Settings
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Change Password Form -->
+                <div class="card animated-card">
+                    <div class="card-header">
+                        <i class="fas fa-key mr-2"></i> Change Password
+                    </div>
+                    <div class="card-body">
+                        <form action="/admin/change_password" method="POST">
+                            <div class="form-group">
+                                <label>Current Password</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" name="current_password" id="currentPassword" required>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary toggle-password" type="button" data-target="currentPassword">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>New Password</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" name="new_password" id="newPassword" required>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary toggle-password" type="button" data-target="newPassword">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm New Password</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" name="confirm_password" id="confirmPassword" required>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary toggle-password" type="button" data-target="confirmPassword">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-key mr-2"></i> Change Password
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    
+    <script>
+        // Toggle password visibility
+        $(document).on('click', '.toggle-password', function() {
+            const target = $(this).data('target');
+            const input = $('#' + target);
+            const icon = $(this).find('i');
+            
+            if (input.attr('type') === 'password') {
+                input.attr('type', 'text');
+                icon.removeClass('fa-eye').addClass('fa-eye-slash');
+            } else {
+                input.attr('type', 'password');
+                icon.removeClass('fa-eye-slash').addClass('fa-eye');
+            }
+        });
+        
+        // Update file input label
+        $(document).on('change', '.custom-file-input', function() {
+            let fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').addClass("selected").html(fileName || "Choose file");
+        });
+    </script>
+</body>
+</html>

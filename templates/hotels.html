@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotels - Manthra Travel with DILA</title>
+    <title>{{ settings.site_name }}</title>
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
 
@@ -310,7 +310,7 @@ border-color: #f26522 !important;
         <hr>
         <div class="row">
             <div class="col-sm-6" style="color: #fff;" >
-                © Manthra Travel with DILA 2025 - All Rights Reserved
+                © {{ settings.site_name }} 2025 - All Rights Reserved
             </div>
             <div class="col-sm-6">
                 <div id="social_footer">
