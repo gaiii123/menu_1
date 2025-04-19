@@ -7,6 +7,14 @@
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
 
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="../static/img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="../static/img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="../static/img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="../static/img/apple-touch-icon-144x144-precomposed.png">
+
+
     <style>
         #chat-button {
             position: fixed;
@@ -294,41 +302,32 @@ border-color: #f26522 !important;
         
     </div>
 </div>
-<footer class="footer1" style="background-color: #3b4046;" >
-    <div class="container" >
+<!-- Footer -->
+<footer class="footer1" id="footer" style="background-color: #3b4046;">
+    <div class="container">
         <div class="row">
-            <div class="col-md-4 col-sm-12" >
+            <div class="col-md-4 col-sm-12">
                 <h2 style="color: #f26522;">About Us</h2>
-                <p style="color: #fff;">The most important info on your mobile during a visit
+                <p style="color: #fff;">The most important info on your mobile during a visit</p>
                 <p style="color: #fff;">Phone: +94 74 084 0238</p>
-
             </div>
-            
-            
         </div>
-        <!-- End row -->
         <hr>
         <div class="row">
-            <div class="col-sm-6" style="color: #fff;" >
+            <div class="col-sm-6" style="color: #fff;">
                 © {{ settings.site_name }} 2025 - All Rights Reserved
             </div>
             <div class="col-sm-6">
                 <div id="social_footer">
                     <ul>
-                        <li><a href="#0"><i class="icon-facebook"></i></a>
-                        </li>
-                        <li><a href="#0"><i class="icon-google"></i></a>
-                        </li>
-                        <li><a href="#0"><i class="icon-instagram"></i></a>
-                        </li>
+                        <li><a href="https://www.facebook.com/share/164jhDAGER/?mibextid=wwXIfr"><i class="icon-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com/manthra_travel_?igsh=cTB1aXhmNmF4MjBk&utm_source=qr"><i class="icon-instagram"></i></a></li>
+                        <a href="/login" class="btn btn-login" style=" margin-top: 25px; margin-right: 10px; text-decoration-color: #000000;">Login</a>
                     </ul>
-
                 </div>
             </div>
         </div>
-        <!-- End row -->
     </div>
-    <!-- End container -->
 </footer>
 
     <script src="{{ url_for('static', filename='js/jquery-2.2.4.min.js') }}"></script>

@@ -96,6 +96,7 @@
         
         .table {
             margin-bottom: 0;
+            table-layout: fixed; /* Ensures consistent column widths */
         }
         
         .table th {
@@ -115,11 +116,32 @@
             color: #6c757d !important;
         }
         
+        /* Improved comment handling */
         .review-comment {
-            max-width: 300px;
-            white-space: nowrap;
+            max-width: 100%;
+            word-wrap: break-word;
+            white-space: pre-wrap; /* Preserves line breaks */
             overflow: hidden;
-            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* Limit to 3 lines */
+            -webkit-box-orient: vertical;
+            position: relative;
+        }
+        
+        .review-comment.expanded {
+            -webkit-line-clamp: unset; /* Remove line limit when expanded */
+        }
+        
+        .read-more {
+            color: var(--primary-color);
+            cursor: pointer;
+            font-size: 0.8rem;
+            display: block;
+            margin-top: 5px;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
         }
         
         /* Mobile responsiveness */
@@ -136,6 +158,10 @@
             
             .card-header {
                 padding: 12px 15px;
+            }
+            
+            .table td {
+                padding: 8px;
             }
         }
         
@@ -177,8 +203,7 @@
             }
             
             .review-comment {
-                max-width: 100%;
-                white-space: normal;
+                -webkit-line-clamp: 2; /* Show fewer lines on mobile */
             }
         }
     </style>
@@ -220,11 +245,11 @@
                             <table class="table table-hover">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Rating</th>
-                                        <th>Comment</th>
-                                        <th>Date</th>
-                                        <th>Actions</th>
+                                        <th style="width: 15%">Name</th>
+                                        <th style="width: 15%">Rating</th>
+                                        <th style="width: 40%">Comment</th>
+                                        <th style="width: 15%">Date</th>
+                                        <th style="width: 15%">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -240,8 +265,15 @@
                                             {% endfor %}
                                             <small class="text-muted ml-2">({{ review.rating }}/5)</small>
                                         </td>
-                                        <td data-label="Comment" class="review-comment" title="{{ review.comment }}">
-                                            {{ review.comment }}
+                                        <td data-label="Comment">
+                                            <div class="review-comment" id="comment-{{ loop.index }}">
+                                                {{ review.comment }}
+                                            </div>
+                                            {% if review.comment|length > 150 %}
+                                            <span class="read-more" onclick="toggleComment('comment-{{ loop.index }}', this)">
+                                                Read more
+                                            </span>
+                                            {% endif %}
                                         </td>
                                         <td data-label="Date">{{ review.created_at }}</td>
                                         <td data-label="Actions">
@@ -267,6 +299,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
     
     <script>
+        // Toggle comment expansion
+        function toggleComment(commentId, element) {
+            const comment = document.getElementById(commentId);
+            comment.classList.toggle('expanded');
+            
+            if (comment.classList.contains('expanded')) {
+                element.textContent = 'Show less';
+            } else {
+                element.textContent = 'Read more';
+            }
+        }
+
         // Delete review functionality
         $(document).on('click', '.delete-review', function() {
             const reviewId = $(this).data('id');

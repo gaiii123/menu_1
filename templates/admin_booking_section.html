@@ -242,8 +242,6 @@
                                         <th>Package</th>
                                         <th>Contact</th>
                                         <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -257,41 +255,7 @@
                                             <div><i class="fas fa-globe mr-2"></i> {{ booking.country }}</div>
                                         </td>
                                         <td data-label="Date">{{ booking.created_at }}</td>
-                                        <td data-label="Status">
-                                            <span class="badge 
-                                                {% if booking.status == 'Confirmed' %}badge-confirmed
-                                                {% elif booking.status == 'Pending' %}badge-pending
-                                                {% elif booking.status == 'Cancelled' %}badge-cancelled
-                                                {% else %}badge-secondary{% endif %}">
-                                                {{ booking.status }}
-                                            </span>
-                                        </td>
-                                        <td data-label="Actions">
-                                            <div class="dropdown action-dropdown">
-                                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" 
-                                                    id="dropdownMenuButton{{ loop.index }}" data-toggle="dropdown" 
-                                                    aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fas fa-cog"></i>
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{ loop.index }}">
-                                                    <form class="status-form" data-id="{{ booking._id }}">
-                                                        <button class="dropdown-item status-option" type="button" data-status="Confirmed">
-                                                            <i class="fas fa-check-circle text-success"></i> Confirm
-                                                        </button>
-                                                        <button class="dropdown-item status-option" type="button" data-status="Pending">
-                                                            <i class="fas fa-clock text-warning"></i> Set Pending
-                                                        </button>
-                                                        <button class="dropdown-item status-option" type="button" data-status="Cancelled">
-                                                            <i class="fas fa-times-circle text-danger"></i> Cancel
-                                                        </button>
-                                                    </form>
-                                                    <div class="dropdown-divider"></div>
-                                                    <button class="dropdown-item text-danger delete-booking" data-id="{{ booking._id }}">
-                                                        <i class="fas fa-trash-alt mr-2"></i> Delete
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </td>
+                                        
                                     </tr>
                                     {% endfor %}
                                 </tbody>
